@@ -26,9 +26,9 @@ h1 {
     display: flex;
     flex-direction: column;
     justify-content: left;
-    width: 6%;
+    width: 10%;
     line-height: 2rem;
-    font-size: 1.5em;
+    font-size: 2em;
     margin-right: 6%;
     margin-left: 0;
 
@@ -42,10 +42,11 @@ h1 {
      color: white;
      text-decoration: none;
 
+
  }
 
 #rouge:hover{
-    font-size: 2em;
+    font-size: 1.8em;
     width: 3.5em;
     height: 50px;
 
@@ -63,7 +64,7 @@ h1 {
 }
 
 #rose:hover{
-    font-size: 2em;
+    font-size: 1.8em;
     width: 3.5em;
     height: 50px;
 
@@ -81,7 +82,7 @@ h1 {
 }
 
 #blanc:hover{
-    font-size: 2em;
+    font-size: 1.8em;
     width: 3.5em;
     height: 50px;
 
@@ -99,7 +100,7 @@ h1 {
 }
 
 #pet:hover{
-    font-size: 2em;
+    font-size: 1.8em;
     width: 3.5em;
     height: 50px;
 
@@ -116,4 +117,103 @@ h1 {
     flex-direction: column;
     align-items: end;
     text-align: center;
+}
+
+.btn-delet {
+
+    background-color: #C82829;
+    border-radius: 180px;
+    font-size: 1.5em;
+
+}
+
+.btn-save {
+
+    background-color: yellow;
+    border-radius: 180px;
+    font-size: 1.5em;
+}
+
+.index {
+
+    background-color: blue;
+    border-radius: 180px;
+    font-size: 1.5em;
+}
+
+.edit {
+
+    background-color: palevioletred;
+    border-radius: 180px;
+    font-size: 1.5em;
+
+}
+
+.btn-retour {
+    background-color: #8959A8;
+    border-radius: 180px;
+    font-size: 1.5em;
+    text-decoration: none;
+    text-shadow: 1px 1px #ffcc00;
+}
+
+#bienvenu {
+
+    font-size: 1.5em;
+    color: #313131;
+    text-shadow: 1px 1px yellow;
+    text-decoration: none;
+}
+
+
+
+.vin-index {
+    font-size: 1.5em;
+    background-color: yellow;
+    border-radius: 180px;
+    text-decoration: none;
+
+}
+
+.mets-index {
+    font-size: 1.5em;
+    background-color: #5eb5e0;
+    border-radius: 180px;
+    text-decoration: none;
+}
+
+.delog {
+    font-size: 1.5em;
+    background-color: #C82829;
+    border-radius: 180px;
+    text-decoration: none;
+}
+
+.btn-user {
+    font-size: 1.5em;
+    background-color: palevioletred;
+    border-radius: 180px;
+    text-decoration: none;
+
+}
+
+.btn-retour {
+    font-size: 1.5em;
+    background-color: yellow;
+    border-radius: 180px;
+    text-decoration: none;
+}
+
+
+
+@media (max-width: 1000px) {
+    #main {
+        width: 100%;
+
+    }
+    #menu:hover >a{
+
+        display: none;
+
+    }
 }

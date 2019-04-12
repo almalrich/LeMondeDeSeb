@@ -1,8 +1,9 @@
 <!DOCTYPE html>
-<html>
+<html lang="fr">
     <head>
         <meta charset="UTF-8">
         {% block stylesheets %}<link rel="stylesheet" href="{{ asset("MaCave.css") }}">{% endblock %}
+        <meta content="width=devise-width, initial-scale=1" name="viewport"/>
         <title>{% block title %}Welcome!{% endblock %}</title>
     <body>
 
@@ -10,17 +11,17 @@
         {% if is_granted('IS_AUTHENTICATED_FULLY') %}
             <div class="user-info">
                 <p>
-                    <strong>
+                    <strong id="bienvenu">
                         Bienvenue, <span>{{ app.user.username }}</span>
                     </strong>
                 </p>
 
 
-                <a href="{{ logout_path('main') }}">deconnection</a>
+                <a class="delog" href {{ logout_path('main') }}">deconnection</a>
 
-                <a href="{{ path ('homepage') }}">acceuil</a>
+                <a class="btn-retour" href {{ path ('homepage') }}">acceuil</a>
 
-              <a href="{{ path('baseUser') }}">VinUser</a>
+              <a class="btn-user" href="{{ path('baseUser') }}">VinUser</a>
 
 
             </div>
@@ -37,11 +38,11 @@
 
     <a id="rouge" href="{{ path('vin_rouge') }}">Rouge</a>
 
-    <a id="rose" href="rosé">Rosé</a>
+    <a id="rose" href="{{ path('vin_rose') }}">Rosé</a>
 
-    <a id="blanc" href="blanc">Blanc</a>
+    <a id="blanc" href="{{ path('vin_blanc') }}">Blanc</a>
 
-    <a id="pet" href="petillant">petillant</a>
+    <a id="pet" href="{{ path('vin_petillant') }}">Petillant</a>
 
 
 
@@ -52,9 +53,9 @@
     </main>
     {% if is_granted('ROLE_ADMIN') %}
 
-    <a href="{{ path ('vin_index') }}">Vins</a>
+    <a class="vin-index" href="{{ path ('vin_index') }}">Vins</a>
 
-    <a href="{{ path ('mets_index') }}">mets</a>
+    <a class="mets-index" href="{{ path ('mets_index') }}">mets</a>
 
     {% endif %}
 

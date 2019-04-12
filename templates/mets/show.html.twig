@@ -22,9 +22,9 @@
         </tbody>
     </table>
 
-    <a href="{{ path('mets_index') }}">back to list</a>
+    <a  class="index" href="{{ path('mets_index') }}">back to list</a>
 
-    <a href="{{ path('mets_edit', {'id': met.id}) }}">edit</a>
+    <a class="edit" href="{{ path('mets_edit', {'id': met.id}) }}">edit</a>
 
     {{ include('mets/_delete_form.html.twig') }}
 {% endblock %}

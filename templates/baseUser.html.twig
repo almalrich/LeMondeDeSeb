@@ -3,6 +3,7 @@
 <head>
     <meta charset="UTF-8">
     {% block stylesheets %}<link rel="stylesheet" href="{{ asset("MaCave.css") }}">{% endblock %}
+    <meta content="width=devise-width, initial-scale=1" name="viewport"/>
     <title>{% block title %}Welcome!{% endblock %}</title>
 <body>
 
@@ -10,17 +11,17 @@
         {% if is_granted('IS_AUTHENTICATED_FULLY') %}
             <div class="user-info">
                 <p>
-                    <strong>
+                    <strong id="bienvenu">
                         Bienvenue, <span>{{ app.user.username }}</span>
                     </strong>
                 </p>
 
 
-                <a href="{{ logout_path('main') }}">deconnection</a>
+                <a class="delog" href="{{ logout_path('main') }}">deconnection</a>
 
-                <a href="{{ path ('homepage') }}">acceuil</a>
+                <a class="btn-retour" href="{{ path ('homepage') }}">acceuil</a>
 
-                <a href="{{ path('baseUser') }}">VinUser</a>
+                <a class="btn-user" href="{{ path('baseUser') }}">VinUser</a>
 
 
             </div>

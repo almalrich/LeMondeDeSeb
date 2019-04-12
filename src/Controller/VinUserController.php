@@ -72,6 +72,14 @@ class VinUserController extends AbstractController
         return $this->render('vin/blanc.html.twig', ['vins'=>$vin]);
     }
 
-
+    /**
+     * @Route("/pet" , name="vin_petillant")
+     *
+     */
+    public function voirPet(){
+        $repovin = $this->getDoctrine()->getRepository(Vin::class);
+        $vin = $repovin->findBy(['color'=>'petillant']);
+        return $this->render('vin/pet.html.twig', ['vins'=>$vin]);
+    }
 }
 
