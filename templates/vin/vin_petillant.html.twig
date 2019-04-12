@@ -1,0 +1,20 @@
+{% extends 'baseUser.html.twig' %}
+
+{% block body %}
+
+<h1>Vins Pétillant</h1>
+
+    {% for vin in vins %}
+
+        <div class="container-bouteille">
+
+            {{ vin.name }}
+
+            <img class="img-vin" src="{{ vin.image }}">
+
+        </div>
+
+    {% endfor %}
+
+
+{% endblock %}
