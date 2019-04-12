@@ -1,0 +1,43 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Vin index{% endblock %}
+
+{% block body %}
+    <h1>Vin index</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Name</th>
+                <th>Color</th>
+                <th>Description</th>
+                <th>MetId</th>
+                <th>Image</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for vin in vins %}
+            <tr>
+                <td>{{ vin.id }}</td>
+                <td>{{ vin.name }}</td>
+                <td>{{ vin.color }}</td>
+                <td>{{ vin.description }}</td>
+                <td>{{ vin.metId }}</td>
+                <td>{{ vin.image }}</td>
+                <td>
+                    <a href="{{ path('vin_show', {'id': vin.id}) }}">show</a>
+                    <a href="{{ path('vin_edit', {'id': vin.id}) }}">edit</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="7">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ path('vin_new') }}">Create new</a>
+{% endblock %}

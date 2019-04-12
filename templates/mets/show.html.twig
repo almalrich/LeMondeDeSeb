@@ -1,0 +1,30 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Mets{% endblock %}
+
+{% block body %}
+    <h1>Mets</h1>
+
+    <table class="table">
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ met.id }}</td>
+            </tr>
+            <tr>
+                <th>Title</th>
+                <td>{{ met.title }}</td>
+            </tr>
+            <tr>
+                <th>Description</th>
+                <td>{{ met.description }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <a href="{{ path('mets_index') }}">back to list</a>
+
+    <a href="{{ path('mets_edit', {'id': met.id}) }}">edit</a>
+
+    {{ include('mets/_delete_form.html.twig') }}
+{% endblock %}

@@ -1,0 +1,11 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}New Vin{% endblock %}
+
+{% block body %}
+    <h1>Create new Vin</h1>
+
+    {{ include('vin/_form.html.twig') }}
+
+    <a href="{{ path('vin_index') }}">back to list</a>
+{% endblock %}

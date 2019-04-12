@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    {% block stylesheets %}<link rel="stylesheet" href="{{ asset("MaCave.css") }}">{% endblock %}
+    <title>{% block title %}Welcome!{% endblock %}</title>
+<body>
+
+<header>{% block header %}<h1>Le Monde De Seb</h1>
+        {% if is_granted('IS_AUTHENTICATED_FULLY') %}
+            <div class="user-info">
+                <p>
+                    <strong>
+                        Bienvenue, <span>{{ app.user.username }}</span>
+                    </strong>
+                </p>
+
+
+                <a href="{{ logout_path('main') }}">deconnection</a>
+
+                <a href="{{ path ('homepage') }}">acceuil</a>
+
+                <a href="{{ path('baseUser') }}">VinUser</a>
+
+
+            </div>
+
+        {% endif %}
+
+    {% endblock %}</header>
+
+<main class="container">
+
+    <nav class="barre">
+
+        <div class="menu">
+
+            <a id="rouge" href="rouge">Rouge</a>
+
+            <a id="rose" href="rosé">Rosé</a>
+
+            <a id="blanc" href="blanc">Blanc</a>
+
+            <a id="pet" href="petillant">petillant</a>
+
+
+
+        </div>
+
+    </nav>
+
+</main>
+
+
+{% block body %}{% endblock %}
+{% block javascripts %}{% endblock %}
+</body>
+</html>

@@ -1,0 +1,119 @@
+
+
+
+.user-info {
+
+    color: #565656;
+    padding: 2%;
+    margin: 7%;
+
+}
+
+header {
+    background-image: url("https://images-na.ssl-images-amazon.com/images/I/51bznI8gdwL._SY355_.jpg");
+    height: 150px;
+    padding: 5%;
+    text-align: center;
+}
+
+h1 {
+    text-align: center;
+    text-shadow: 2px 2px white;
+
+}
+
+.menu {
+    display: flex;
+    flex-direction: column;
+    justify-content: left;
+    width: 6%;
+    line-height: 2rem;
+    font-size: 1.5em;
+    margin-right: 6%;
+    margin-left: 0;
+
+}
+
+#rouge {
+
+     background-color: #C82829;
+     border-bottom-right-radius: 180px;
+     border-top-right-radius: 180px;
+     color: white;
+     text-decoration: none;
+
+ }
+
+#rouge:hover{
+    font-size: 2em;
+    width: 3.5em;
+    height: 50px;
+
+
+}
+
+#rose {
+
+    background-color: palevioletred;
+    border-bottom-right-radius: 180px;
+    border-top-right-radius: 180px;
+    color: white;
+    text-decoration: none;
+
+}
+
+#rose:hover{
+    font-size: 2em;
+    width: 3.5em;
+    height: 50px;
+
+
+}
+
+#blanc {
+
+    background-color: yellow;
+    border-bottom-right-radius: 180px;
+    border-top-right-radius: 180px;
+    color: black;
+    text-decoration: none;
+
+}
+
+#blanc:hover{
+    font-size: 2em;
+    width: 3.5em;
+    height: 50px;
+
+
+}
+
+#pet {
+
+    background-image: url("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT9RJT-hvvpYEj8itqekuyReZWyTNo36mk-RNM-6vpkZM3Nb1Fn7A");
+    border-bottom-right-radius: 180px;
+    border-top-right-radius: 180px;
+    color: black;
+    text-decoration: none;
+
+}
+
+#pet:hover{
+    font-size: 2em;
+    width: 3.5em;
+    height: 50px;
+
+
+}
+
+.img-vin{
+    width: 250px;
+
+}
+.container-bouteille{
+
+    display: flex;
+    flex-direction: column;
+    align-items: end;
+    text-align: center;
+}

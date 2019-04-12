@@ -1,0 +1,11 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}New Mets{% endblock %}
+
+{% block body %}
+    <h1>Create new Mets</h1>
+
+    {{ include('mets/_form.html.twig') }}
+
+    <a href="{{ path('mets_index') }}">back to list</a>
+{% endblock %}
