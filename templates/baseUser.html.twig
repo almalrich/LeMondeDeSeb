@@ -9,24 +9,28 @@
 
 <header>{% block header %}<h1>Le Monde De Seb</h1>
         {% if is_granted('IS_AUTHENTICATED_FULLY') %}
-            <div class="user-info">
+           <div class="strat">
                 <p>
                     <strong id="bienvenu">
                         Bienvenue, <span>{{ app.user.username }}</span>
                     </strong>
                 </p>
 
-
-                <a class="delog" href="{{ logout_path('main') }}">deconnection</a>
-
-                <a class="btn-retour" href="{{ path ('homepage') }}">acceuil</a>
-
-                <a class="btn-user" href="{{ path('baseUser') }}">VinUser</a>
-
-
             </div>
 
         {% endif %}
+
+        <div class="user-info">
+
+            <span>....</span>
+
+            <a class="delog" href="{{ logout_path('main') }}">deconnection</a>
+
+            <a class="btn-retour" href="{{ path ('homepage') }}">acceuil</a>
+
+            <a class="btn-user" href="{{ path('baseUser') }}">VinUser</a>
+
+
 
     {% endblock %}</header>
 
@@ -35,6 +39,8 @@
     <nav class="barre">
 
         <div class="menu">
+
+
 
             <a id="rouge" href="rouge">Rouge</a>
 

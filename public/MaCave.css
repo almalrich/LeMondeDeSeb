@@ -1,7 +1,9 @@
+.user-info > span {
+    display: none;
+}
 
 
-
-.user-info {
+.strat {
 
     color: #565656;
     padding: 2%;
@@ -207,13 +209,24 @@ h1 {
 
 
 @media (max-width: 1000px) {
-    #main {
-        width: 100%;
 
+    .user-info > span{
+        display: inline-block;
     }
-    #menu:hover >a{
 
+
+
+    .user-info > a {
         display: none;
+    }
 
+    .user-info > span{
+        display: inline-block;
+    }
+
+    .user-info:hover > a{
+        width: 60%;
+        display: block;
+        margin: 20px auto;
     }
 }
