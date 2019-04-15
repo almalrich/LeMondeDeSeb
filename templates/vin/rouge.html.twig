@@ -2,19 +2,12 @@
 
 {% block body %}
 
-<h1>Vins Rouge</h1>
+<h2>Vins Rouge</h2>
+{{ form (wine) }}
 
-{% for vin in vins %}
+    <div id="red">
 
-<div class="container-bouteille">
-
-   {{ vin.name }}
-
-    <img class="img-vin" src="{{ vin.image }}">
 
     </div>
-
-    {% endfor %}
-
 
 {% endblock %}

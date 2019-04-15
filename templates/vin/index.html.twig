@@ -14,6 +14,7 @@
                 <th>Description</th>
                 <th>MetId</th>
                 <th>Image</th>
+                <th>prix</th>
                 <th>actions</th>
             </tr>
         </thead>
@@ -26,9 +27,10 @@
                 <td>{{ vin.description }}</td>
                 <td>{{ vin.metId }}</td>
                 <td>{{ vin.image }}</td>
+                <td>{{ vin.prix }}</td>
                 <td>
-                    <a href="{{ path('vin_show', {'id': vin.id}) }}">show</a>
-                    <a href="{{ path('vin_edit', {'id': vin.id}) }}">edit</a>
+                    <a class="show" href="{{ path('vin_show', {'id': vin.id}) }}">show</a>
+                    <a class="edit" href="{{ path('vin_edit', {'id': vin.id}) }}">edit</a>
                 </td>
             </tr>
         {% else %}
@@ -39,5 +41,5 @@
         </tbody>
     </table>
 
-    <a href="{{ path('vin_new') }}">Create new</a>
+    <a class="btn-create" href="{{ path('vin_new') }}">Create new</a>
 {% endblock %}

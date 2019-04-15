@@ -11,7 +11,9 @@ namespace App\Controller;
 use App\Entity\Vin;
 
 use App\Repository\VinRepository;
+use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
@@ -21,17 +23,18 @@ class VinUserController extends AbstractController
 {
 
     /**
-    * @Route("/bouteille/{id}", name="bouteille", methods={"GET"})
-    */
-    public function affiche (Request $request, Vin $vin, $id){
+     * @Route("/bouteille/{id}", name="bouteille", methods={"GET"})
+     */
+    public function affiche(Request $request, Vin $vin, $id)
+    {
 
         $repoVin = $this->getDoctrine()->getRepository(Vin::class);
         $vin = $repoVin->find($id);
 
 
-
-        return $this->render('vin/uservin.html.twig', ["vins"=>$vin]);
+        return $this->render('vin/uservin.html.twig', ["vins" => $vin]);
     }
+
     /**
      * @Route("/uservin", name="baseUser", methods={"GET"})
      */
@@ -46,40 +49,77 @@ class VinUserController extends AbstractController
      * @Route("/rouge" , name="vin_rouge")
      *
      */
-    public function voirRouge(){
-        $repovin = $this->getDoctrine()->getRepository(Vin::class);
-        $vin = $repovin->findBy(['color'=>'rouge']);
-        return $this->render('vin/rouge.html.twig', ['vins'=>$vin]);
+    public function voirRouge()
+    {
+        $form = $this->createFormBuilder()
+            ->add('vin', EntityType::class, ['class' => Vin::class,
+                'query_builder' => function (VinRepository $er) {
+                    return $er->createQueryBuilder('u')
+                        ->andWhere("u.color = 'rouge' ");
+                },
+                'choice_label' => 'name',
+            ])
+            ->getForm();
+
+
+        return $this->render('vin/rouge.html.twig', ['wine' => $form->createView()]);
+
     }
 
     /**
      * @Route("/rose" , name="vin_rose")
      *
      */
-    public function voirRose(){
-        $repovin = $this->getDoctrine()->getRepository(Vin::class);
-        $vin = $repovin->findBy(['color'=>'rose']);
-        return $this->render('vin/rose.html.twig', ['vins'=>$vin]);
+    public function voirRose()
+    {
+        $form = $this->createFormBuilder()
+            ->add('vin', EntityType::class, ['class' => Vin::class,
+                'query_builder' => function (VinRepository $er) {
+                    return $er->createQueryBuilder('u')
+                        ->andWhere("u.color = 'rose' ");
+                },
+                'choice_label' => 'name',
+            ])
+            ->getForm();
+        return $this->render('vin/rose.html.twig', ['wine' => $form->createView()]);
     }
 
     /**
      * @Route("/blanc" , name="vin_blanc")
      *
      */
-    public function voirBlanc(){
-        $repovin = $this->getDoctrine()->getRepository(Vin::class);
-        $vin = $repovin->findBy(['color'=>'blanc']);
-        return $this->render('vin/blanc.html.twig', ['vins'=>$vin]);
+    public function voirBlanc()
+    {
+        $form = $this->createFormBuilder()
+            ->add('vin', EntityType::class, ['class' => Vin::class,
+                'query_builder' => function (VinRepository $er) {
+                    return $er->createQueryBuilder('u')
+                        ->andWhere("u.color = 'blanc' ");
+                },
+                'choice_label' => 'name',
+            ])
+            ->getForm();
+
+        return $this->render('vin/blanc.html.twig', ['wine' => $form->createView()]);
     }
 
     /**
      * @Route("/pet" , name="vin_petillant")
      *
      */
-    public function voirPet(){
-        $repovin = $this->getDoctrine()->getRepository(Vin::class);
-        $vin = $repovin->findBy(['color'=>'petillant']);
-        return $this->render('vin/pet.html.twig', ['vins'=>$vin]);
+    public function voirPet()
+    {
+        $form = $this->createFormBuilder()
+            ->add('vin', EntityType::class, ['class' => Vin::class,
+                'query_builder' => function (VinRepository $er) {
+                    return $er->createQueryBuilder('u')
+                        ->andWhere("u.color = 'petillant' ");
+                },
+                'choice_label' => 'name',
+            ])
+            ->getForm();
+
+        return $this->render('vin/pet.html.twig', ['wine' => $form->createView()]);
     }
 }
 

@@ -1,3 +1,6 @@
+/********header*********/
+
+
 .user-info > span {
     display: none;
 }
@@ -24,6 +27,13 @@ h1 {
 
 }
 
+h2 {
+
+    text-align: center;
+    margin-top: 8%;
+
+}
+
 .menu {
     display: flex;
     flex-direction: column;
@@ -36,6 +46,8 @@ h1 {
 
 }
 
+
+/*****menu vin************/
 #rouge {
 
      background-color: #C82829;
@@ -45,15 +57,18 @@ h1 {
      text-decoration: none;
 
 
- }
+}
+
+
 
 #rouge:hover{
+
     font-size: 1.8em;
     width: 3.5em;
     height: 50px;
-
-
 }
+
+
 
 #rose {
 
@@ -109,6 +124,9 @@ h1 {
 
 }
 
+/***********crud+autre************/
+
+
 .img-vin{
     width: 250px;
 
@@ -126,6 +144,7 @@ h1 {
     background-color: #C82829;
     border-radius: 180px;
     font-size: 1.5em;
+    color: #f6f6f6;
 
 }
 
@@ -138,9 +157,10 @@ h1 {
 
 .index {
 
-    background-color: blue;
+    background-color: #5eb5e0;
     border-radius: 180px;
     font-size: 1.5em;
+    text-decoration: none;
 }
 
 .edit {
@@ -148,11 +168,20 @@ h1 {
     background-color: palevioletred;
     border-radius: 180px;
     font-size: 1.5em;
+    text-decoration: none;
+
+}
+
+.show{
+    background-color: yellow;
+    border-radius: 180px;
+    font-size: 1.5em;
+    text-decoration: none;
 
 }
 
 .btn-retour {
-    background-color: #8959A8;
+    background-color: palevioletred;
     border-radius: 180px;
     font-size: 1.5em;
     text-decoration: none;
@@ -206,6 +235,15 @@ h1 {
     text-decoration: none;
 }
 
+.btn-create {
+
+    font-size: 1.5em;
+    background-color: palevioletred;
+    border-radius: 180px;
+    text-decoration: none;
+
+}
+/******debut media ********/
 
 
 @media (max-width: 1000px) {
