@@ -1,0 +1,56 @@
+{% extends 'baseUser.html.twig' %}
+
+{% block body %}
+
+
+    {% if vin %}
+        {{ vin.name }}<br>
+        {{ vin.description }}<br>
+        <img src="{{vin.image}}"><br>
+        {{ vin.prix }}
+
+    {% endif %}
+
+    <script type="text/javascript">
+
+
+
+
+    /*    document.getElementById('form_vin').addEventListener("change", function(e)
+        {
+
+            alert(e.target.options[e.target.selectedIndex].value);
+        });*/
+
+
+        function selectVin () {
+            var xhr = new XMLHttpRequest();
+
+            xhr.open('GET', 'rouge/2');
+
+            xhr.addEventListener('readystatechange', function() { // On gère ici une requête asynchrone
+
+                if (xhr.readyState === 4 && xhr.status === 200) { // Si le fichier est chargé sans erreur
+
+                    var seb = this.responseText;
+
+console.log("hello");
+                   // document.getElementById('red').innerHTML = '<span>' + xhr.responseText + '</span>'; // Et on affiche !
+
+                }
+
+            });
+
+            xhr.send(); // La requête est prête, on envoie tout !
+        }
+
+        document.addEventListener("click", selectVin);
+
+    </script>
+
+
+
+
+
+
+{% endblock %}

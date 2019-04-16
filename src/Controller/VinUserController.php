@@ -14,6 +14,7 @@ use App\Repository\VinRepository;
 use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
+use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
@@ -51,21 +52,46 @@ class VinUserController extends AbstractController
      */
     public function voirRouge()
     {
+        // SELECT DISTINCT vin.appelation FROM vin ORDER BY appelation
+
         $form = $this->createFormBuilder()
             ->add('vin', EntityType::class, ['class' => Vin::class,
                 'query_builder' => function (VinRepository $er) {
                     return $er->createQueryBuilder('u')
+                        ->distinct('u.appelation')
                         ->andWhere("u.color = 'rouge' ");
+
                 },
-                'choice_label' => 'name',
+                'choice_label' => 'appelation',
             ])
             ->getForm();
+
+
+
+
 
 
         return $this->render('vin/rouge.html.twig', ['wine' => $form->createView()]);
 
     }
 
+    /**
+     *@Route("/rouge/{IdVin}", name="IdVin")
+     *
+     */
+
+    public function afficheRouge($IdVin){
+
+        $repoVin = $this->getDoctrine()->getRepository(Vin::class);
+        $vins = $repoVin->find($IdVin);
+
+        $response = new JsonResponse();
+        $response->setData($vins);
+
+        $response->headers->set('Content-Type', 'application/json');
+        return $response;
+
+    }
     /**
      * @Route("/rose" , name="vin_rose")
      *
@@ -121,5 +147,7 @@ class VinUserController extends AbstractController
 
         return $this->render('vin/pet.html.twig', ['wine' => $form->createView()]);
     }
+
+
 }
 

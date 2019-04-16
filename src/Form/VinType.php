@@ -13,6 +13,7 @@ class VinType extends AbstractType
     {
         $builder
             ->add('name')
+            ->add('appelation')
             ->add('color')
             ->add('description')
             ->add('metId')

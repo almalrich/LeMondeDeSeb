@@ -46,6 +46,11 @@ class Vin
      */
     private $prix;
 
+    /**
+     * @ORM\Column(type="string", length=255, nullable=true)
+     */
+    private $appelation;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -119,6 +124,18 @@ class Vin
     public function setPrix(?string $prix): self
     {
         $this->prix = $prix;
+
+        return $this;
+    }
+
+    public function getAppelation(): ?string
+    {
+        return $this->appelation;
+    }
+
+    public function setAppelation(?string $appelation): self
+    {
+        $this->appelation = $appelation;
 
         return $this;
     }

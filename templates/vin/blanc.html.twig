@@ -1,20 +1,63 @@
 {% extends 'baseUser.html.twig' %}
 
+
 {% block body %}
 
-<h2>Vins Blanc</h2>
+    <h2>Vins Blanc</h2>
+    {{ form (wine) }}
 
-    {% for vin in vins %}
+    <div id="white">
 
-        <div class="container-bouteille">
 
-            {{ vin.name }}
+    </div>
 
-            <img class="img-vin" src="{{ vin.image }}">
 
-        </div>
 
-    {% endfor %}
+    <script type="text/javascript">
+
+        /*
+        let vin = document.getElementById("form_vin").options[this.selectedIndex].value;
+
+        document.getElementById('form_vin').addEventListener("click", function () {
+
+
+            console.log (vin);
+
+
+        })*/
+
+
+        document.getElementById('form_vin').addEventListener("change", function(e)
+        {
+
+            window.location.href = '/blanc/' + (e.target.options[e.target.selectedIndex].value);
+        })
+
+
+        function selectVin () {
+            var xhr = new XMLHttpRequest();
+
+            xhr.open('GET', 'blanc')
+
+            xhr.addEventListener('readystatechange', function() { // On gère ici une requête asynchrone
+
+                if (xhr.readyState === XMLHttpRequest.DONE && xhr.status === 200) { // Si le fichier est chargé sans erreur
+
+                    var dd = this.responseText;
+                    console.log (dd);
+
+                    document.getElementById('white').innerHTML = '<span>' + xhr.responseText + '</span>'; // Et on affiche !
+
+                }
+
+            });
+
+            xhr.send(null); // La requête est prête, on envoie tout !
+        }
+
+        document.addEventListener("click", selectVin);
+
+    </script>
 
 
 {% endblock %}

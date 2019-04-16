@@ -9,6 +9,7 @@
         <thead>
             <tr>
                 <th>Id</th>
+                <th>appelation</th>
                 <th>Name</th>
                 <th>Color</th>
                 <th>Description</th>
@@ -22,6 +23,7 @@
         {% for vin in vins %}
             <tr>
                 <td>{{ vin.id }}</td>
+                <td>{{ vin.appelation }}</td>
                 <td>{{ vin.name }}</td>
                 <td>{{ vin.color }}</td>
                 <td>{{ vin.description }}</td>
