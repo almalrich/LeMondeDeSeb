@@ -247,6 +247,25 @@ h2 {
 #red {
     display: flex;
     justify-content: flex-end;
+    width: 300px;
+}
+
+.bout {
+    display: flex;
+    flex-direction: column;
+
+}
+
+.bouteille {
+
+
+    width: 100px;
+
+}
+
+.total{
+    display: flex;
+    justify-content: flex-end;
 }
 /******debut media ********/
 

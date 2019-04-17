@@ -26,11 +26,12 @@
 
         })*/
 
+        document.getElementById('form_vin').selectedIndex = -1;
 
         document.getElementById('form_vin').addEventListener("change", function(e)
         {
 
-            window.location.href = '/blanc/' + (e.target.options[e.target.selectedIndex].value);
+            window.location.href = '/blanc/' + (e.target.options[e.target.selectedIndex].innerText);
         })
 
 
@@ -41,7 +42,7 @@
 
             xhr.addEventListener('readystatechange', function() { // On gère ici une requête asynchrone
 
-                if (xhr.readyState === XMLHttpRequest.DONE && xhr.status === 200) { // Si le fichier est chargé sans erreur
+                if (xhr.readyState === 4 && xhr.status === 200) { // Si le fichier est chargé sans erreur
 
                     var dd = this.responseText;
                     console.log (dd);
@@ -52,10 +53,10 @@
 
             });
 
-            xhr.send(null); // La requête est prête, on envoie tout !
+            xhr.send(); // La requête est prête, on envoie tout !
         }
 
-        document.addEventListener("click", selectVin);
+        //document.addEventListener("click", selectVin);
 
     </script>
 

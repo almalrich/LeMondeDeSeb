@@ -1,17 +1,22 @@
 {% extends 'baseUser.html.twig' %}
 
 {% block body %}
+<div id="total">
+<div id="red">
 
-
-    {% if vin %}
+        {% for vin in vins %}
+            <div id="bout">
         {{ vin.name }}<br>
         {{ vin.description }}<br>
-        <img src="{{vin.image}}"><br>
+      <a href="{{ path('bout',{'id':vin.id}) }}"><img class="bouteille" src="{{vin.image}}"></a> <br>
         {{ vin.prix }}
-
-    {% endif %}
-
+</div>
+        {% endfor %}
+</div>
+    </div>
     <script type="text/javascript">
+
+
 
 
 
@@ -26,13 +31,13 @@
         function selectVin () {
             var xhr = new XMLHttpRequest();
 
-            xhr.open('GET', 'rouge/2');
+            xhr.open('GET', 'rouge');
 
             xhr.addEventListener('readystatechange', function() { // On gère ici une requête asynchrone
 
                 if (xhr.readyState === 4 && xhr.status === 200) { // Si le fichier est chargé sans erreur
 
-                    var seb = this.responseText;
+                    var bout = this.responseText;
 
 console.log("hello");
                    // document.getElementById('red').innerHTML = '<span>' + xhr.responseText + '</span>'; // Et on affiche !

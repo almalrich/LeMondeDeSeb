@@ -26,12 +26,14 @@
 
         })*/
 
+        document.getElementById('form_vin').selectedIndex = -1;
+
 
         document.getElementById('form_vin').addEventListener("change", function(e)
         {
 
-            window.location.href = '/rouge/' + (e.target.options[e.target.selectedIndex].value);
-        })
+            window.location.href = '/rouge/' + (e.target.options[e.target.selectedIndex].innerText);
+        });
 
 
        function selectVin () {
@@ -55,7 +57,7 @@
            xhr.send(null); // La requête est prête, on envoie tout !
        }
 
-       document.addEventListener("click", selectVin);
+      document.addEventListener("click", selectVin);
 
     </script>
 

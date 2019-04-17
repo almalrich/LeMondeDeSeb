@@ -22,11 +22,11 @@ use Symfony\Component\Routing\Annotation\Route;
 
 class VinUserController extends AbstractController
 {
-
+/*
     /**
      * @Route("/bouteille/{id}", name="bouteille", methods={"GET"})
      */
-    public function affiche(Request $request, Vin $vin, $id)
+ /*   public function affiche(Request $request, Vin $vin, $id)
     {
 
         $repoVin = $this->getDoctrine()->getRepository(Vin::class);
@@ -35,7 +35,7 @@ class VinUserController extends AbstractController
 
         return $this->render('vin/uservin.html.twig', ["vins" => $vin]);
     }
-
+*/
     /**
      * @Route("/uservin", name="baseUser", methods={"GET"})
      */
@@ -58,7 +58,9 @@ class VinUserController extends AbstractController
             ->add('vin', EntityType::class, ['class' => Vin::class,
                 'query_builder' => function (VinRepository $er) {
                     return $er->createQueryBuilder('u')
-                        ->distinct('u.appelation')
+                        ->select('u')
+                        ->distinct(true)
+                        ->groupBy('u.appelation')
                         ->andWhere("u.color = 'rouge' ");
 
                 },
@@ -71,27 +73,71 @@ class VinUserController extends AbstractController
 
 
 
+
         return $this->render('vin/rouge.html.twig', ['wine' => $form->createView()]);
 
     }
 
     /**
-     *@Route("/rouge/{IdVin}", name="IdVin")
+     *@Route("/rouge/{appelation}", name="vinId")
      *
      */
 
-    public function afficheRouge($IdVin){
+    public function afficheRouge($appelation){
 
         $repoVin = $this->getDoctrine()->getRepository(Vin::class);
-        $vins = $repoVin->find($IdVin);
+        $vins = $repoVin->findBy(["appelation"=>$appelation]);
+        return $this->render('vin/wine.html.twig', ['vins'=>$vins]);
 
-        $response = new JsonResponse();
-        $response->setData($vins);
 
-        $response->headers->set('Content-Type', 'application/json');
-        return $response;
+     /*  $ar = array();
+        foreach($vins as $vin)
+        {
+            $ar[]=array("nom"=>$vins->getName());
+            dd($ar);
+        }
+
+        //var_dump($ar);
+
+   /*      //$response = new JsonResponse();
+        //$response->setData($vins);
+
+        //$response->headers->set('Content-Type', 'application/json');
+
+        return new JsonResponse(["vins"=>$ar]);*/
+
 
     }
+
+    /**
+     *
+     * @Route("/vin/bout/{id}" , name="bout")
+     *
+     */
+
+
+    public function montrebout($id){
+
+        $repobout = $this->getDoctrine()->getRepository(Vin::class);
+        $bout = $repobout->find($id);
+        return $this->render('vin/bout.html.twig',['bout'=>$bout]);
+    }
+
+
+    /**
+     *@Route("/blanc/{appelation}", name="vinIdblc")
+     *
+     */
+
+    public function afficheBlanc($appelation)
+    {
+
+        $repoVin = $this->getDoctrine()->getRepository(Vin::class);
+        $vins = $repoVin->findBy(["appelation" => $appelation]);
+        return $this->render('vin/white.html.twig', ['vins' => $vins]);
+
+    }
+
     /**
      * @Route("/rose" , name="vin_rose")
      *
@@ -102,6 +148,7 @@ class VinUserController extends AbstractController
             ->add('vin', EntityType::class, ['class' => Vin::class,
                 'query_builder' => function (VinRepository $er) {
                     return $er->createQueryBuilder('u')
+
                         ->andWhere("u.color = 'rose' ");
                 },
                 'choice_label' => 'name',
@@ -120,9 +167,11 @@ class VinUserController extends AbstractController
             ->add('vin', EntityType::class, ['class' => Vin::class,
                 'query_builder' => function (VinRepository $er) {
                     return $er->createQueryBuilder('u')
+                        ->distinct(true)
+                        ->groupBy('u.appelation')
                         ->andWhere("u.color = 'blanc' ");
                 },
-                'choice_label' => 'name',
+                'choice_label' => 'appelation',
             ])
             ->getForm();
 
