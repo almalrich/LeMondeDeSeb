@@ -1,4 +1,4 @@
-/********header*********/
+
 
 
 .user-info > span {
@@ -6,6 +6,15 @@
 }
 
 
+
+.user-info{
+
+    display: flex;
+    justify-content: flex-end;
+
+}
+
+/********header*********/
 .strat {
 
     color: #565656;
@@ -245,28 +254,39 @@ h2 {
 }
 
 #red {
+
     display: flex;
     justify-content: flex-end;
     width: 300px;
+
 }
 
 .bout {
+
     display: flex;
     flex-direction: column;
+    text-align: center;
 
+}
+
+.bout >img{
+
+    margin: auto;
+    width: 180px;
 }
 
 .bouteille {
 
-
     width: 100px;
-
 }
 
 .total{
+
     display: flex;
     justify-content: flex-end;
+
 }
+
 /******debut media ********/
 
 

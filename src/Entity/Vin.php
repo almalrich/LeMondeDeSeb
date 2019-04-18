@@ -32,7 +32,7 @@ class Vin
     private $description;
 
     /**
-     * @ORM\Column(type="integer")
+     * @ORM\ManyToOne(targetEntity="App\Entity\Mets", inversedBy="vin")
      */
     private $metId;
 
@@ -92,7 +92,7 @@ class Vin
         return $this;
     }
 
-    public function getMetId(): ?int
+    public function getMetId()
     {
         return $this->metId;
     }
