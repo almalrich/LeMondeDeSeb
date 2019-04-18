@@ -37,6 +37,21 @@ class VinUserController extends AbstractController
     }
 */
     /**
+     *
+     * @Route("/vin/bout/{id}" , name="bout")
+     *
+     */
+
+
+    public function montrebout($id){
+
+        $repobout = $this->getDoctrine()->getRepository(Vin::class);
+        $bout = $repobout->find($id);
+        return $this->render('vin/bout.html.twig',['bout'=>$bout]);
+    }
+
+
+    /**
      * @Route("/uservin", name="baseUser", methods={"GET"})
      */
     public function index(VinRepository $vinRepository): Response
@@ -103,20 +118,21 @@ class VinUserController extends AbstractController
 
 
     }
-
     /**
-     *
-     * @Route("/vin/bout/{id}" , name="bout")
+     *@Route("/rose/{appelation}", name="vinIdrose")
      *
      */
 
+    public function afficheRose($appelation)
+    {
 
-    public function montrebout($id){
+        $repoVin = $this->getDoctrine()->getRepository(Vin::class);
+        $vins = $repoVin->findBy(["appelation" => $appelation]);
+        return $this->render('vin/pink.html.twig', ['vins' => $vins]);
 
-        $repobout = $this->getDoctrine()->getRepository(Vin::class);
-        $bout = $repobout->find($id);
-        return $this->render('vin/bout.html.twig',['bout'=>$bout]);
     }
+
+
 
 
     /**
@@ -175,6 +191,8 @@ class VinUserController extends AbstractController
 
         return $this->render('vin/blanc.html.twig', ['wine' => $form->createView()]);
     }
+
+
 
     /**
      * @Route("/pet" , name="vin_petillant")

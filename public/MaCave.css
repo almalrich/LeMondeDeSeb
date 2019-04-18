@@ -147,10 +147,7 @@ h2 {
 /***********crud+autre************/
 
 
-.img-vin{
-    width: 250px;
 
-}
 .container-bouteille{
 
     display: flex;
@@ -258,13 +255,15 @@ h2 {
 
 }
 
-#red {
+.botlle {
 
     display: flex;
-    justify-content: flex-end;
+    justify-content: center;
     width: 300px;
 
 }
+
+
 
 .bout {
 

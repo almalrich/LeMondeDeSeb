@@ -1,0 +1,17 @@
+{% block body %}
+<div class="total">
+    <div class="botlle">
+
+        {% for vin in vins %}
+            <div class="bout">
+                {{ vin.name }}<br>
+                {{ vin.description }}<br>
+                <a href="{{ path('bout',{'id':vin.id}) }}"><img class="bouteille" src="{{vin.image}}"></a><br>
+                {{ vin.prix }}
+            </div>
+        {% endfor %}
+    </div>
+</div>
+
+
+{% endblock %}

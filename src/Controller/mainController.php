@@ -24,7 +24,7 @@ class mainController extends AbstractController
             return $this->redirectToRoute("user_index");
         }
         elseif (true === $this->get("security.authorization_checker")->isGranted('ROLE_USER')){
-            return $this->redirectToRoute("vin");
+            return $this->redirectToRoute("baseUser");
         }
         else {
             return $this->redirectToRoute("login");

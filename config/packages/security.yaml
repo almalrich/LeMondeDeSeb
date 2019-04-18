@@ -35,5 +35,6 @@ security:
 
     access_control:
 
-        - { path: ^/Vin, roles: [ROLE_ADMIN, ROLE_USER] }
+        - { path: ^/vin, roles: [ROLE_ADMIN, ROLE_USER] }
+        - { path: ^/uservin, roles: [ROLE_ADMIN, ROLE_USER] }
         - { path: ^/user, roles: ROLE_ADMIN }
