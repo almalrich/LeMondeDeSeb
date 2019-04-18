@@ -8,7 +8,7 @@
                 <div class="bout">
                     {{ vin.name }}<br>
                     {{ vin.description }}<br>
-                    <a href=""><img class="bouteille" src="{{vin.image}}"></a><br>
+                    <a href="{{ path('bout',{'id':vin.id}) }}"><img class="bouteille" src="{{vin.image}}"></a><br>
                     {{ vin.prix }}
                 </div>
             {% endfor %}

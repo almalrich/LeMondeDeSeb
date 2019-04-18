@@ -2,7 +2,9 @@
 
 namespace App\Form;
 
+use App\Entity\Mets;
 use App\Entity\Vin;
+use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
@@ -16,9 +18,11 @@ class VinType extends AbstractType
             ->add('appelation')
             ->add('color')
             ->add('description')
-            ->add('metId')
             ->add('image')
-        ;
+            ->add('prix')
+            ->add('met_id',EntityType::class,['class'=>Mets::class,'choice_label'=>'title']);
+
+
     }
 
     public function configureOptions(OptionsResolver $resolver)

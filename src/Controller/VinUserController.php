@@ -52,7 +52,7 @@ class VinUserController extends AbstractController
      */
     public function voirRouge()
     {
-        // SELECT DISTINCT vin.appelation FROM vin ORDER BY appelation
+
 
         $form = $this->createFormBuilder()
             ->add('vin', EntityType::class, ['class' => Vin::class,
@@ -67,11 +67,6 @@ class VinUserController extends AbstractController
                 'choice_label' => 'appelation',
             ])
             ->getForm();
-
-
-
-
-
 
 
         return $this->render('vin/rouge.html.twig', ['wine' => $form->createView()]);
@@ -156,6 +151,9 @@ class VinUserController extends AbstractController
             ->getForm();
         return $this->render('vin/rose.html.twig', ['wine' => $form->createView()]);
     }
+
+
+
 
     /**
      * @Route("/blanc" , name="vin_blanc")

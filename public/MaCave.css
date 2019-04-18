@@ -31,13 +31,18 @@ header {
 }
 
 h1 {
+    background-color: #868686;
+    border: black solid 2px;
+    border-radius: 180px;
     text-align: center;
     text-shadow: 2px 2px white;
 
 }
 
 h2 {
-
+    background-color: #868686;
+    border: black solid 2px;
+    border-radius: 180px;
     text-align: center;
     margin-top: 8%;
 
@@ -54,7 +59,13 @@ h2 {
     margin-left: 0;
 
 }
+#bienvenu {
 
+    font-size: 2em;
+    color: yellow;
+    text-shadow: 1px 1px #313131;
+    text-decoration: none;
+}
 
 /*****menu vin************/
 #rouge {
@@ -197,13 +208,7 @@ h2 {
     text-shadow: 1px 1px #ffcc00;
 }
 
-#bienvenu {
 
-    font-size: 1.5em;
-    color: #313131;
-    text-shadow: 1px 1px yellow;
-    text-decoration: none;
-}
 
 
 
@@ -296,8 +301,6 @@ h2 {
         display: inline-block;
     }
 
-
-
     .user-info > a {
         display: none;
     }
@@ -310,5 +313,8 @@ h2 {
         width: 60%;
         display: block;
         margin: 20px auto;
+    }
+    .menu{
+        width: 3.3em
     }
 }
