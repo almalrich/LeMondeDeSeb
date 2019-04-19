@@ -118,36 +118,8 @@ class VinUserController extends AbstractController
 
 
     }
-    /**
-     *@Route("/rose/{appelation}", name="vinIdrose")
-     *
-     */
-
-    public function afficheRose($appelation)
-    {
-
-        $repoVin = $this->getDoctrine()->getRepository(Vin::class);
-        $vins = $repoVin->findBy(["appelation" => $appelation]);
-        return $this->render('vin/pink.html.twig', ['vins' => $vins]);
-
-    }
 
 
-
-
-    /**
-     *@Route("/blanc/{appelation}", name="vinIdblc")
-     *
-     */
-
-    public function afficheBlanc($appelation)
-    {
-
-        $repoVin = $this->getDoctrine()->getRepository(Vin::class);
-        $vins = $repoVin->findBy(["appelation" => $appelation]);
-        return $this->render('vin/white.html.twig', ['vins' => $vins]);
-
-    }
 
     /**
      * @Route("/rose" , name="vin_rose")
@@ -166,6 +138,19 @@ class VinUserController extends AbstractController
             ])
             ->getForm();
         return $this->render('vin/rose.html.twig', ['wine' => $form->createView()]);
+    }
+    /**
+     *@Route("/rose/{appelation}", name="vinIdrose")
+     *
+     */
+
+    public function afficheRose($appelation)
+    {
+
+        $repoVin = $this->getDoctrine()->getRepository(Vin::class);
+        $vins = $repoVin->findBy(["appelation" => $appelation]);
+        return $this->render('vin/pink.html.twig', ['vins' => $vins]);
+
     }
 
 
@@ -191,6 +176,19 @@ class VinUserController extends AbstractController
 
         return $this->render('vin/blanc.html.twig', ['wine' => $form->createView()]);
     }
+    /**
+     *@Route("/blanc/{appelation}", name="vinIdblc")
+     *
+     */
+
+    public function afficheBlanc($appelation)
+    {
+
+        $repoVin = $this->getDoctrine()->getRepository(Vin::class);
+        $vins = $repoVin->findBy(["appelation" => $appelation]);
+        return $this->render('vin/white.html.twig', ['vins' => $vins]);
+
+    }
 
 
 
@@ -213,6 +211,19 @@ class VinUserController extends AbstractController
         return $this->render('vin/pet.html.twig', ['wine' => $form->createView()]);
     }
 
+    /**
+     *@Route("/blanc/{appelation}", name="vinIdblc")
+     *
+     */
+
+    public function affichePet($appelation)
+    {
+
+        $repoVin = $this->getDoctrine()->getRepository(Vin::class);
+        $vins = $repoVin->findBy(["appelation" => $appelation]);
+        return $this->render('vin/bulles.html.twig', ['vins' => $vins]);
+
+    }
 
 }
 
