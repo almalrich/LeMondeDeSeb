@@ -14,7 +14,8 @@ class MetsType extends AbstractType
         $builder
             ->add('title')
             ->add('description')
-        ;
+            ->add('vin');
+
     }
 
     public function configureOptions(OptionsResolver $resolver)

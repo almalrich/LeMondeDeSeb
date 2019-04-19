@@ -7,11 +7,22 @@
     {{ bout.name }}
     {{ bout.appelation }}
 
-    <img src="{{ bout.metId.image }}">
+    {% for met in mets %}
+
+        {{ met.title }}
+       <img src="{{ met.image }}">
+
+    {% endfor %}
+
 
     <img src="{{ bout.image }}">
     {{ bout.description }}
     {{ bout.prix }}
+
+
+
+
+    {%   dump mets %}
 
 
 

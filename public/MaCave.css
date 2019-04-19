@@ -12,6 +12,7 @@
     display: flex;
     justify-content: flex-end;
 
+
 }
 
 /********header*********/
@@ -203,6 +204,7 @@ h2 {
     font-size: 1.5em;
     text-decoration: none;
     text-shadow: 1px 1px #ffcc00;
+    padding: 7px 7px 7px 7px;
 }
 
 
@@ -229,6 +231,7 @@ h2 {
     background-color: #C82829;
     border-radius: 180px;
     text-decoration: none;
+    padding: 7px 7px 7px 7px;
 }
 
 .btn-user {
@@ -236,6 +239,7 @@ h2 {
     background-color: palevioletred;
     border-radius: 180px;
     text-decoration: none;
+    padding: 7px 7px 7px 7px;
 
 }
 
@@ -290,7 +294,7 @@ h2 {
 .bouteille {
 
     width: 100px;
-    height: 120px;
+
 }
 
 .total{

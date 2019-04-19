@@ -2,54 +2,103 @@
 
 namespace App\Entity;
 
+use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
- * @ORM\Entity(repositoryClass="App\Repository\VinRepository")
+ * Vin
+ *
+ * @ORM\Table(name="vin", indexes={@ORM\Index(name="IDX_B108514129276EF3", columns={"met_id"})})
+ * @ORM\Entity
  */
 class Vin
 {
     /**
-     * @ORM\Id()
-     * @ORM\GeneratedValue()
-     * @ORM\Column(type="integer")
+     * @var int
+     *
+     * @ORM\Column(name="id", type="integer", nullable=false)
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="IDENTITY")
      */
     private $id;
 
     /**
-     * @ORM\Column(type="string", length=255)
+     * @var string
+     *
+     * @ORM\Column(name="name", type="string", length=255, nullable=false)
      */
     private $name;
 
     /**
-     * @ORM\Column(type="string", length=255)
+     * @var string
+     *
+     * @ORM\Column(name="color", type="string", length=255, nullable=false)
      */
     private $color;
 
     /**
-     * @ORM\Column(type="string", length=255)
+     * @var string
+     *
+     * @ORM\Column(name="description", type="string", length=255, nullable=false)
      */
     private $description;
 
     /**
-     * @ORM\ManyToOne(targetEntity="App\Entity\Mets", inversedBy="vin")
-     */
-    private $metId;
-
-    /**
-     * @ORM\Column(type="string", length=255, nullable=true)
+     * @var string|null
+     *
+     * @ORM\Column(name="image", type="string", length=255, nullable=true)
      */
     private $image;
 
     /**
-     * @ORM\Column(type="text", nullable=true)
+     * @var string|null
+     *
+     * @ORM\Column(name="prix", type="text", length=0, nullable=true)
      */
     private $prix;
 
     /**
-     * @ORM\Column(type="string", length=255, nullable=true)
+     * @var string|null
+     *
+     * @ORM\Column(name="appelation", type="string", length=255, nullable=true)
      */
     private $appelation;
+
+    /**
+     * @var \Mets
+     *
+     * @ORM\ManyToOne(targetEntity="Mets")
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="met_id", referencedColumnName="id")
+     * })
+     */
+    private $met;
+
+    /**
+     * @var \Doctrine\Common\Collections\Collection
+     *
+     * @ORM\ManyToMany(targetEntity="Mets", mappedBy="vin")
+     * @ORM\JoinTable(name="mets_vin",
+     *      joinColumns={
+     *     @ORM\JoinColumn(name="vin_id", referencedColumnName="id")
+     *   },
+     *   inverseJoinColumns={
+     *     @ORM\JoinColumn(name="mets_id", referencedColumnName="id")
+     *   }
+     * )
+     */
+
+
+    private $mets;
+
+    /**
+     * Constructor
+     */
+    public function __construct()
+    {
+        $this->mets = new \Doctrine\Common\Collections\ArrayCollection();
+    }
 
     public function getId(): ?int
     {
@@ -92,18 +141,6 @@ class Vin
         return $this;
     }
 
-    public function getMetId()
-    {
-        return $this->metId;
-    }
-
-    public function setMetId(int $metId): self
-    {
-        $this->metId = $metId;
-
-        return $this;
-    }
-
     public function getImage(): ?string
     {
         return $this->image;
@@ -139,4 +176,45 @@ class Vin
 
         return $this;
     }
+
+    public function getMet(): ?Mets
+    {
+        return $this->met;
+    }
+
+    public function setMet(?Mets $met): self
+    {
+        $this->met = $met;
+
+        return $this;
+    }
+
+    /**
+     * @return Collection|Mets[]
+     */
+    public function getMets(): Collection
+    {
+        return $this->mets;
+    }
+
+    public function addMet(Mets $met): self
+    {
+        if (!$this->mets->contains($met)) {
+            $this->mets[] = $met;
+            $met->addVin($this);
+        }
+
+        return $this;
+    }
+
+    public function removeMet(Mets $met): self
+    {
+        if ($this->mets->contains($met)) {
+            $this->mets->removeElement($met);
+            $met->removeVin($this);
+        }
+
+        return $this;
+    }
+
 }

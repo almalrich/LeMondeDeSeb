@@ -8,7 +8,9 @@
 
 namespace App\Controller;
 
+
 use App\Entity\Vin;
+use App\Entity\Mets;
 
 use App\Repository\VinRepository;
 use Symfony\Bridge\Doctrine\Form\Type\EntityType;
@@ -18,6 +20,7 @@ use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
+    use Doctrine\ORM\EntityRepository;
 
 
 class VinUserController extends AbstractController
@@ -41,13 +44,18 @@ class VinUserController extends AbstractController
      * @Route("/vin/bout/{id}" , name="bout")
      *
      */
-
-
     public function montrebout($id){
+
 
         $repobout = $this->getDoctrine()->getRepository(Vin::class);
         $bout = $repobout->find($id);
-        return $this->render('vin/bout.html.twig',['bout'=>$bout]);
+        $test = $bout->getMets();
+
+
+        dump($test);
+
+        return $this->render('vin/bout.html.twig',['bout'=>$bout,
+            "mets"=>$bout->getMets()]);
     }
 
 
@@ -68,10 +76,11 @@ class VinUserController extends AbstractController
     public function voirRouge()
     {
 
+        $er = $this->getDoctrine()->getRepository(Vin::class);
 
         $form = $this->createFormBuilder()
             ->add('vin', EntityType::class, ['class' => Vin::class,
-                'query_builder' => function (VinRepository $er) {
+                'query_builder' => function (EntityRepository $er)  {
                     return $er->createQueryBuilder('u')
                         ->select('u')
                         ->distinct(true)
