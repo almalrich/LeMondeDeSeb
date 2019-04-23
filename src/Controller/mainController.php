@@ -8,7 +8,11 @@
 namespace App\Controller;
 
 
+use App\Entity\User;
+use App\Form\UserType;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+use Symfony\Component\Form\Extension\Core\Type\SubmitType;
+use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\Routing\Annotation\Route;
 
 class mainController extends AbstractController
@@ -27,9 +31,42 @@ class mainController extends AbstractController
             return $this->redirectToRoute("baseUser");
         }
         else {
-            return $this->redirectToRoute("login");
+            return $this->redirectToRoute("inscription");
         }
+
     }
+
+    /**
+     * @Route("/inscription", name="inscription")
+     *
+     */
+    public function inscription(Request $request){
+
+        $user = new User();
+
+        $form = $this->createForm(UserType::class,$user)->remove('rankId')->add('save',SubmitType::class);
+
+        $form->handleRequest($request);
+
+        if ($form->isSubmitted()&&$form->isValid()){
+
+            $user->setRankId(2);
+
+
+            $em = $this->getDoctrine()->getManager();
+
+            $em->persist($user);
+
+            $em->flush();
+
+            return $this->redirectToRoute('login');
+
+        }
+
+
+        return $this->render('user/inscription.html.twig', ['enregistrement'=>$form->createView()]);
+
+}
 
 
 }

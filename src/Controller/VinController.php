@@ -93,4 +93,5 @@ class VinController extends AbstractController
 
         return $this->redirectToRoute('vin_index');
     }
+
 }

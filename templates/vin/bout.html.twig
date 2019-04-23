@@ -4,29 +4,31 @@
 
 <div class="bout">
 
-    {{ bout.name }}
-    {{ bout.appelation }}
+    {{ bout.name }}<br>
+    {{ bout.appelation }}<br>
 
     {% for met in mets %}
 
         {{ met.title }}
-       <img src="{{ met.image }}">
+       <img id="met{{ loop.index}}"src="{{ met.image }}">
 
     {% endfor %}
 
-
     <img src="{{ bout.image }}">
+
+</div>
+
     {{ bout.description }}
     {{ bout.prix }}
 
 
 
 
-    {%   dump mets %}
 
 
 
 
-</div>
+
+
 
 {% endblock %}

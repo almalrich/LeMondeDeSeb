@@ -263,7 +263,7 @@ h2 {
 
     display: flex;
     justify-content: center;
-    width: 300px;
+    max-height: 200px;
 
 }
 
@@ -271,15 +271,15 @@ h2 {
 
     display: flex;
     justify-content: center;
-    width: 300px;
+    max-height: 200px;
 
 }
 
 .bout {
 
-
+    font-size: 2em;
     display: flex;
-    flex-direction: column;
+    justify-content: space-between;
     text-align: center;
 
 }
@@ -287,14 +287,14 @@ h2 {
 .bout >img{
 
     margin: auto;
-    width: 180px;
-    height: 200px;
+    width: auto;
+    max-height: 200px;
 }
 
 .bouteille {
 
-    width: 100px;
-
+    width: auto;
+    max-height: 200px;
 }
 
 .total{

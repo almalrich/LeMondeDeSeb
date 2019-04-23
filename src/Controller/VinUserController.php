@@ -52,7 +52,7 @@ class VinUserController extends AbstractController
         $test = $bout->getMets();
 
 
-        dump($test);
+
 
         return $this->render('vin/bout.html.twig',['bout'=>$bout,
             "mets"=>$bout->getMets()]);
