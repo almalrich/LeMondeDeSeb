@@ -147,12 +147,11 @@ h2 {
 /***********crud+autre************/
 
 
-
 .container-bouteille{
 
     display: flex;
     flex-direction: column;
-    align-items: end;
+
     text-align: center;
 }
 
@@ -258,11 +257,9 @@ h2 {
 
 }
 
-.botlle {
+.bout{
 
-    display: flex;
-    justify-content: center;
-    width: 300px;
+    font-size: 4em;
 
 }
 
@@ -285,6 +282,69 @@ h2 {
 
 }
 
+#img{
+    position: absolute;
+    z-index: 5;
+    margin: auto;
+    width: 150px;
+    left: 40px;
+    right: 0px;
+    top: 405px;
+    font-size: 2em;
+}
+
+#img2{
+    position: absolute;
+    z-index: 5;
+    margin: auto;
+    width: 150px;
+    left: 260px;
+    font-size: 2em;
+    top: 505px;
+
+}
+
+#img3{
+    position: absolute;
+    z-index: 5;
+    margin: auto;
+    width: 150px;
+    left: 10px;
+    font-size: 2em;
+    top: 650px;
+}
+
+#img4{
+    position: absolute;
+    z-index: 5;
+    margin: auto;
+    width: 130px;
+    right: 245px;
+    font-size: 2em;
+    top: 505px;
+}
+
+#img5{
+    position: absolute;
+    z-index: 5;
+    margin: auto;
+    width: 150px;
+    right: 2px;
+    font-size: 2em;
+    top: 650px;
+}
+
+#contenant{
+
+    position: absolute;
+    z-index: 4;
+    margin: auto;
+    width: 150px;
+    left: 0px;
+    right: 0px;
+    top: 650px;
+    font-size: 2em;
+}
 
 #lh{
 
@@ -300,6 +360,7 @@ h2 {
 }
 
 #imgvin{
+
 
     left: 0px;
     right: 0px;

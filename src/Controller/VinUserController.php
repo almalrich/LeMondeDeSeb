@@ -94,7 +94,7 @@ class VinUserController extends AbstractController
             ->getForm();
 
 
-        return $this->render('vin/rouge.html.twig', ['wit' => $form->createView()]);
+        return $this->render('vin/rouge.html.twig', ['wine' => $form->createView()]);
 
     }
 
