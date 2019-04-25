@@ -12,6 +12,7 @@ namespace App\Controller;
 use App\Entity\Vin;
 use App\Entity\Mets;
 
+use App\Repository\MetsRepository;
 use App\Repository\VinRepository;
 use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
@@ -20,7 +21,7 @@ use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
-    use Doctrine\ORM\EntityRepository;
+use Doctrine\ORM\EntityRepository;
 
 
 class VinUserController extends AbstractController
@@ -70,7 +71,7 @@ class VinUserController extends AbstractController
     }
 
     /**
-     * @Route("/rouge" , name="vin_rouge")
+     * @Route("bout/rouge" , name="vin_rouge")
      *
      */
     public function voirRouge()
@@ -93,7 +94,7 @@ class VinUserController extends AbstractController
             ->getForm();
 
 
-        return $this->render('vin/rouge.html.twig', ['wine' => $form->createView()]);
+        return $this->render('vin/rouge.html.twig', ['wit' => $form->createView()]);
 
     }
 
@@ -109,29 +110,13 @@ class VinUserController extends AbstractController
         return $this->render('vin/wine.html.twig', ['vins'=>$vins]);
 
 
-     /*  $ar = array();
-        foreach($vins as $vin)
-        {
-            $ar[]=array("nom"=>$vins->getName());
-            dd($ar);
-        }
-
-        //var_dump($ar);
-
-   /*      //$response = new JsonResponse();
-        //$response->setData($vins);
-
-        //$response->headers->set('Content-Type', 'application/json');
-
-        return new JsonResponse(["vins"=>$ar]);*/
-
 
     }
 
 
 
     /**
-     * @Route("/rose" , name="vin_rose")
+     * @Route("bout/rose" , name="vin_rose")
      *
      */
     public function voirRose()
@@ -140,7 +125,8 @@ class VinUserController extends AbstractController
             ->add('vin', EntityType::class, ['class' => Vin::class,
                 'query_builder' => function (VinRepository $er) {
                     return $er->createQueryBuilder('u')
-
+                        ->distinct(true)
+                        ->groupBy('u.appelation')
                         ->andWhere("u.color = 'rose' ");
                 },
                 'choice_label' => 'name',
@@ -162,22 +148,20 @@ class VinUserController extends AbstractController
 
     }
 
-
-
-
     /**
-     * @Route("/blanc" , name="vin_blanc")
+     * @Route("bout/blanc" , name="vin_blanc")
      *
      */
     public function voirBlanc()
     {
+        $er = $this->getDoctrine()->getRepository(Vin::class);
         $form = $this->createFormBuilder()
             ->add('vin', EntityType::class, ['class' => Vin::class,
                 'query_builder' => function (VinRepository $er) {
-                    return $er->createQueryBuilder('u')
+                    return $er->createQueryBuilder('b')
                         ->distinct(true)
-                        ->groupBy('u.appelation')
-                        ->andWhere("u.color = 'blanc' ");
+                        ->groupBy('b.appelation')
+                        ->andWhere("b.color = 'blanc' ");
                 },
                 'choice_label' => 'appelation',
             ])
@@ -185,6 +169,8 @@ class VinUserController extends AbstractController
 
         return $this->render('vin/blanc.html.twig', ['wine' => $form->createView()]);
     }
+
+
     /**
      *@Route("/blanc/{appelation}", name="vinIdblc")
      *
@@ -200,9 +186,8 @@ class VinUserController extends AbstractController
     }
 
 
-
     /**
-     * @Route("/pet" , name="vin_petillant")
+     * @Route("bout/pet" , name="vin_petillant")
      *
      */
     public function voirPet()
@@ -221,7 +206,7 @@ class VinUserController extends AbstractController
     }
 
     /**
-     *@Route("/blanc/{appelation}", name="vinIdblc")
+     *@Route("/pet/{appelation}", name="vinIdblc")
      *
      */
 
@@ -233,6 +218,35 @@ class VinUserController extends AbstractController
         return $this->render('vin/bulles.html.twig', ['vins' => $vins]);
 
     }
+/*
+    /**
+     * @Route("/accord" , name="accord")
+     *
+     */
+/*
+    public function afficheMets(){
+        $em = $this->getDoctrine()->getManager();
+        $query= $em->createQueryBuilder()->select("m.title", "v.name")->from(Mets::class,'m')->join("m.vin","v")->getquery();
+        $accord = $query ->getResult();
+        dd($accord);
+
+/*
+        $form = $this->createFormBuilder()
+            ->add('met', EntityType::class, ['class' => Mets::class,
+                'query_builder' => function (MetsRepository $er) {
+                    return $er->createQueryBuilder('m')->from(Mets::class, 'm')->join("m.vin", "v");
+
+
+
+                },
+                'choice_label' => 'name',
+                'multiple' => true,
+            ])
+            ->getForm();
+        return $this->render('/accord.html.twig', ['accord' => $form->createView()]);
+
+
+    }*/
 
 }
 

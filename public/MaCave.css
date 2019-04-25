@@ -48,7 +48,6 @@ h2 {
     margin-top: 8%;
 
 }
-
 .menu {
     display: flex;
     flex-direction: column;
@@ -263,7 +262,7 @@ h2 {
 
     display: flex;
     justify-content: center;
-    max-height: 200px;
+    width: 300px;
 
 }
 
@@ -271,40 +270,69 @@ h2 {
 
     display: flex;
     justify-content: center;
-    max-height: 200px;
+    width: 300px;
 
 }
 
-.bout {
-
-    font-size: 2em;
-    display: flex;
-    justify-content: space-between;
-    text-align: center;
-
-}
-
-.bout >img{
-
+.met{
+    position: absolute;
+    border-radius: 100%;
+    max-height: 150px;
+    z-index: 3;
+    border: 4px solid darkred;
     margin: auto;
-    width: auto;
-    max-height: 200px;
-}
-
-.bouteille {
-
-    width: auto;
-    max-height: 200px;
-}
-
-.total{
-
-    width: 100%;
-    display: flex;
-    justify-content: space-between;
-
+    width: 150px;
 
 }
+
+
+#lh{
+
+    left: 250px;
+    top: 550px;
+}
+
+#center{
+
+    left: 0px;
+    right: 0px;
+    top: 450px;
+}
+
+#imgvin{
+
+    left: 0px;
+    right: 0px;
+    top: 700px;
+}
+
+#lb{
+
+    left: 0px;
+    top: 700px;
+
+}
+
+#rh{
+    right: 250px;
+    top: 550px;
+}
+
+#rb{
+     right: 0px;
+     top: 700px;
+}
+
+.met:hover {
+    transform: scale(1.24);
+    transition: transform 0.5s;
+}
+
+
+
+
+
+
 
 /******debut media ********/
 

@@ -37,4 +37,5 @@ security:
 
         - { path: ^/vin, roles: [ROLE_ADMIN, ROLE_USER] }
         - { path: ^/uservin, roles: [ROLE_ADMIN, ROLE_USER] }
+        - { path: ^/bout, roles: [ROLE_ADMIN, ROLE_USER] }
         - { path: ^/user, roles: ROLE_ADMIN }

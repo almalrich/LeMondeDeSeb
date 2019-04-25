@@ -1,25 +1,70 @@
 {% extends 'baseUser.html.twig' %}
 
 {% block body %}
+  {#
+
+
 
 <div class="bout">
 
     {{ bout.name }}<br>
     {{ bout.appelation }}<br>
 
-    {% for met in mets %}
 
-        {{ met.title }}
-       <img id="met{{ loop.index}}"src="{{ met.image }}">
+<div>
+      <div> <br>
+       <img id="met{{ loop.index}}"src="{{ met.image }}"><br></div>
 
-    {% endfor %}
 
-    <img src="{{ bout.image }}">
+
 
 </div>
+</div>
 
-    {{ bout.description }}
+    {{ bout.description }}<br>
     {{ bout.prix }}
+#}
+
+
+
+
+            {{ mets[0].title}}
+
+            <img class="met" id="center" src="{{ mets[0].image }}">
+
+             {{ mets[1].title }}
+
+            <img class="met" id="lh" src="{{ mets[1].image }}">
+
+
+
+
+            <img class="met" id="lb" src="{{ mets[2].image }}">
+
+
+
+
+            <img class="met" id="imgvin" src="{{ bout.image }}">
+
+
+
+            <img class="met" id="rh" src="{{ mets[3].image }}">
+
+
+
+
+            <img class="met" id="rb" src="{{ mets[4].image }}">
+
+
+
+
+
+
+
+
+
+
+
 
 
 

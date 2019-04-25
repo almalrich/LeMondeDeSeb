@@ -5,6 +5,7 @@ namespace App\Controller;
 use App\Entity\Mets;
 use App\Form\MetsType;
 use App\Repository\MetsRepository;
+use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
@@ -69,19 +70,20 @@ class MetsController extends AbstractController
         if ($form->isSubmitted() && $form->isValid()) {
             $this->getDoctrine()->getManager()->flush();
 
+            /*
             return $this->redirectToRoute('mets_index', [
                 'id' => $met->getId(),
-            ]);
+            ]);*/
         }
 
         return $this->render('mets/edit.html.twig', [
-            'met' => $met,
+            'mets' => $met,
             'form' => $form->createView(),
         ]);
     }
 
     /**
-     * @Route("/{id}", name="mets_delete", methods={"DELETE"})
+     * @Route("/{id}/delete", name="mets_delete", methods={"DELETE"})
      */
     public function delete(Request $request, Mets $met): Response
     {
@@ -96,3 +98,4 @@ class MetsController extends AbstractController
 
 
 }
+

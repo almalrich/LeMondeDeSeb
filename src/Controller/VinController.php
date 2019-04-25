@@ -5,6 +5,7 @@ namespace App\Controller;
 use App\Entity\Vin;
 use App\Form\VinType;
 use App\Repository\VinRepository;
+use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
@@ -93,5 +94,6 @@ class VinController extends AbstractController
 
         return $this->redirectToRoute('vin_index');
     }
+
 
 }
