@@ -4,17 +4,60 @@
 
 <h2>Vins Rosé</h2>
 
-    {% for vin in vins %}
+    <div id="pink">
 
-        <div class="container-bouteille">
+        {{ form (wine) }}
 
-            {{ vin.name }}
+    </div>
+    <script type="text/javascript">
 
-            <img class="img-vin" src="{{ vin.image }}">
+        /*
+        let vin = document.getElementById("form_vin").options[this.selectedIndex].value;
 
-        </div>
+        document.getElementById('form_vin').addEventListener("click", function () {
 
-    {% endfor %}
+
+            console.log (vin);
+
+
+        })*/
+
+        document.getElementById('form_vin').selectedIndex = -1;
+
+        document.getElementById('form_vin').addEventListener("change", function(e)
+        {
+
+            window.location.href = '/rose/' + (e.target.options[e.target.selectedIndex].innerText);
+        })
+
+
+        function selectVin () {
+            var xhr = new XMLHttpRequest();
+
+            xhr.open('GET', 'rose')
+
+            xhr.addEventListener('readystatechange', function() { // On gère ici une requête asynchrone
+
+                if (xhr.readyState === 4 && xhr.status === 200) { // Si le fichier est chargé sans erreur
+
+                    //    var dd = this.responseText;
+
+
+                    //  document.getElementById('white').innerHTML = '<span>' + xhr.responseText + '</span>'; // Et on affiche !
+
+                }
+
+            });
+
+            xhr.send(); // La requête est prête, on envoie tout !
+        }
+
+        document.addEventListener("click", selectVin);
+
+    </script>
+
+
+
 
 
 {% endblock %}

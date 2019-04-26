@@ -20,7 +20,7 @@ class VinType extends AbstractType
             ->add('description')
             ->add('image')
             ->add('prix')
-            ->add('met',EntityType::class,['class'=>Mets::class,'choice_label'=>'title', 'multiple'=>true])
+            ->add('mets',EntityType::class,['class'=>Mets::class,'choice_label'=>'title', 'multiple'=>true])
     ;
 
     }

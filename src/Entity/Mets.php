@@ -40,7 +40,7 @@ class Mets
     /**
      * @var string|null
      *
-     * @ORM\Column(name="image", type="text", length=0, nullable=true)
+     * @ORM\Column(name="image", type="text", length=255, nullable=true)
      */
     private $image;
 

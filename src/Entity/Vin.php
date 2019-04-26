@@ -54,7 +54,7 @@ class Vin
     /**
      * @var string|null
      *
-     * @ORM\Column(name="prix", type="text", length=0, nullable=true)
+     * @ORM\Column(name="prix", type="text", length=255, nullable=true)
      */
     private $prix;
 

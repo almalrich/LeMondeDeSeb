@@ -82,7 +82,7 @@ class VinController extends AbstractController
     }
 
     /**
-     * @Route("/{id}", name="vin_delete", methods={"DELETE"})
+     * @Route("/{id}/delete", name="vin_delete", methods={"DELETE"})
      */
     public function delete(Request $request, Vin $vin): Response
     {
