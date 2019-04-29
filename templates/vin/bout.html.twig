@@ -24,10 +24,10 @@
   #}
 
 
-
+<div id="page">
     <div id="img">
 
-       {{ mets[0].title }}
+  {{ mets[0].title }}
 
     <img class="met" id="center" src="{{ mets[0].image }}">
 
@@ -82,7 +82,39 @@
 
     </div>
 
+    <div id="js">
+        <h3>Astuce cliquez sur un met ou une bouteille</h3>
 
+    </div>
+    </div>
+
+<script>
+    document.getElementById('imgvin').addEventListener ('click', function() {
+       document.getElementById('js').innerText = ( "L'abus d'alcool est dangereux pour la santé à consommer avec modération")
+    });
+
+    document.getElementById('img').addEventListener('click', function () {
+        document.getElementById('js').innerText = ( "lors d'un repas il est de coutume de monter en puissance au niveau des tanins en entrée un blanc puis un rouge fruité pour arrivé sur le rouge tanique et on fini en bulles")
+
+    });
+
+    document.getElementById('img2').addEventListener('click', function () {
+        document.getElementById('js').innerText = ("en ce qui concerne la décantation en carafe cela peu vous aider à faire s'oxygéner et offrir tout ses aromes alors qu'un vin mature pourra être servis à même la bouteille")
+    });
+
+    document.getElementById('img3').addEventListener('click', function () {
+        document.getElementById('js').innerText = ("le fromage de chèvre s'accorde à la perfection avec un vin blanc de type sancerre, chablis, sylvaner,....vous serez étonnez du résultat")
+    });
+
+    document.getElementById('img4').addEventListener('click', function () {
+        document.getElementById('js').innerText = ("préfèrez une cave en terre battue ou poussieureuse afin de passer un coup de jet et couvrir vos bouteilles d'une fine couche de poussière")
+    });
+
+    document.getElementById('img5').addEventListener('click', function () {
+        document.getElementById('js').innerText = ("savez vous que Charlles de Gaulles à donné son nom à un tire bouchon ceux qui une fois viser ressemble à un 'V'....")
+    });
+
+</script>
 
 
 

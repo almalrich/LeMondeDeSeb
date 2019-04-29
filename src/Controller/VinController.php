@@ -67,6 +67,7 @@ class VinController extends AbstractController
         $form = $this->createForm(VinType::class, $vin);
         $form->handleRequest($request);
 
+
         if ($form->isSubmitted() && $form->isValid()) {
             $this->getDoctrine()->getManager()->flush();
 
@@ -78,7 +79,8 @@ class VinController extends AbstractController
         return $this->render('vin/edit.html.twig', [
             'vin' => $vin,
             'form' => $form->createView(),
-        ]);
+
+               ]);
     }
 
     /**

@@ -21,7 +21,9 @@ class VinType extends AbstractType
             ->add('image')
             ->add('prix')
             ->add('mets',EntityType::class,['class'=>Mets::class,'choice_label'=>'title', 'multiple'=>true])
-    ;
+
+        ;
+
 
     }
 

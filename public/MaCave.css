@@ -356,7 +356,9 @@ h2 {
     transform: scale(1.24);
     transition: transform 0.5s;
 }
-
+#page{
+    align-content: center;
+}
 #contenant{
 
     position: absolute;
@@ -372,7 +374,23 @@ h2 {
     transform: scale(1.24);
     transition: transform 0.5s;
 }
+h3{
+    left: 110px;
+    right: 0;
+    top: 20px;
+    position: relative;
+    margin: auto;
+}
 
+#js{
+    position: relative;
+    left: 0;
+    right: 0;
+    margin: auto;
+    top: 50px;
+    height: 100px;
+    width: 500px;
+}
 
 #lh{
 
