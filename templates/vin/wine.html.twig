@@ -1,7 +1,7 @@
 {% extends 'baseUser.html.twig' %}
 
 {% block body %}
-<div id="total">
+<div class="total">
 <div class="botlle">
 
         {% for vin in vins %}
@@ -39,7 +39,6 @@
 
                     var bout = this.responseText;
 
-console.log("hello");
                    // document.getElementById('red').innerHTML = '<span>' + xhr.responseText + '</span>'; // Et on affiche !
 
                 }

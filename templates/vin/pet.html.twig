@@ -1,0 +1,64 @@
+{% extends 'baseUser.html.twig' %}
+
+{% block body %}
+
+<h2>Vins Pétillant</h2>
+
+
+<div class="vin">
+
+    {{ form (wine) }}
+
+</div>
+
+
+
+<script type="text/javascript">
+
+    /*
+    let vin = document.getElementById("form_vin").options[this.selectedIndex].value;
+
+    document.getElementById('form_vin').addEventListener("click", function () {
+
+
+        console.log (vin);
+
+
+    })*/
+
+    document.getElementById('form_vin').selectedIndex = -1;
+
+
+    document.getElementById('form_vin').addEventListener("change", function(e)
+    {
+
+        window.location.href = '/petillant/' + (e.target.options[e.target.selectedIndex].innerText);
+    });
+
+
+    function selectVin () {
+        var xhr = new XMLHttpRequest();
+
+        xhr.open('GET', 'petillant')
+
+        xhr.addEventListener('readystatechange', function() { // On gère ici une requête asynchrone
+
+            if (xhr.readyState === XMLHttpRequest.DONE && xhr.status === 200) { // Si le fichier est chargé sans erreur
+
+                //var dd = this.responseText;
+
+
+                // document.getElementById('red').innerHTML = '<span>' + xhr.responseText + '</span>'; // Et on affiche !
+
+            }
+
+        });
+
+        xhr.send(null); // La requête est prête, on envoie tout !
+    }
+
+    document.addEventListener("click", selectVin);
+
+</script>
+
+{% endblock %}

@@ -145,7 +145,9 @@ h2 {
 }
 
 /***********crud+autre************/
-
+.bouteille{
+    max-height: 200px;
+}
 
 .container-bouteille{
 
@@ -259,10 +261,25 @@ h2 {
 
 .bout{
 
-    font-size: 4em;
+    font-size: 1.5em;
 
 }
+.total{
 
+
+    display: flex;
+    margin-top: 5%;
+    justify-content: center;
+    text-align: center;
+    font-size: 1em;
+}
+
+
+.vin{
+    height: 200px;
+    text-align: center;
+    font-size: 3em;
+}
 #white {
 
     display: flex;
@@ -280,6 +297,7 @@ h2 {
     border: 4px solid darkred;
     margin: auto;
     width: 150px;
+
 
 }
 
@@ -333,8 +351,8 @@ h2 {
     position: absolute;
     z-index: 5;
     margin: auto;
-    width: 130px;
-    right: 245px;
+    width: 150px;
+    right: 260px;
     font-size: 2em;
     top: 505px;
 }
@@ -359,16 +377,25 @@ h2 {
 #page{
     align-content: center;
 }
+.met-title{
+    rotation: 180deg;
+    width: 300px;
+    position: relative;
+    margin-left: 22px;
+
+
+}
 #contenant{
 
     position: absolute;
-    z-index: 6;
+    z-index: 999;
     margin: auto;
-    width: 150px;
+    width: 500px;
     left: 0px;
     right: 0px;
     top: 650px;
     font-size: 2em;
+    text-align: center;
 }
 #contenant:hover {
     transform: scale(1.24);
@@ -393,6 +420,7 @@ h3{
 }
 
 #lh{
+    text-align: center;
 
     left: 0px;
     top: 50px;
@@ -431,6 +459,9 @@ h3{
      top: 50px;
 }
 
+.botlle{
+
+}
 
 
 
@@ -464,4 +495,51 @@ h3{
     .menu{
         width: 3.3em
     }
+
+   #img{
+       top: 650px;
+       right: 0;
+       left: 0;
+       margin: auto;
+   }
+   #img2{
+       right: 0;
+       left: 0;
+       top: 800px;
+       margin: auto;
+   }
+   #img3{
+       right: 0;
+       left: 0;
+       top: 980px;
+       margin: auto;
+   }
+   #img4{
+       right: 0;
+       left: 0;
+       top: 1150px;
+       margin: auto;
+   }
+   #img5{
+       right: 0;
+       left: 0;
+       top: 1300px;
+       margin: auto;
+   }
+   #contenant{
+       right: 0;
+       left: 0;
+       top: 450px;
+       margin: auto;
+   }
+
+   #js{
+       display: none;
+   }
+   .bout{
+       font-size: 15px;
+   }
+   .table{
+       font-size: 10px;
+   }
 }

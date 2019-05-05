@@ -27,7 +27,7 @@
 <div id="page">
     <div id="img">
 
-  {{ mets[0].title }}
+ <div class="met-title">{{ mets[0].title }}</div>
 
     <img class="met" id="center" src="{{ mets[0].image }}">
 
@@ -36,7 +36,7 @@
 
     <div id="img2">
 
-        {{ mets[1].title }}
+    <div class="met-title">{{ mets[1].title }}</div>
 
     <img class="met" id="lh" src="{{ mets[1].image }}">
 
@@ -44,7 +44,7 @@
 
     <div id="img3">
 
-        {{ mets[2].title }}
+    <div class="met-title">{{ mets[2].title }}</div>
 
 
     <img class="met" id="lb" src="{{ mets[2].image }}">
@@ -56,8 +56,6 @@
 
     {{ bout.name }}
 
-    {{ bout.prix }}
-
 
     <img class="met" id="imgvin" src="{{ bout.image }}">
 
@@ -66,7 +64,7 @@
 
     <div id="img4">
 
-        {{ mets[3].title }}
+       <div class="met-title">{{ mets[3].title }}</div>
 
 
     <img class="met" id="rh" src="{{ mets[3].image }}">
@@ -75,7 +73,7 @@
 
     <div id="img5">
 
-        {{ mets[4].title }}
+      <div class="met-title">{{ mets[4].title }}</div>
 
 
     <img class="met" id="rb" src="{{ mets[4].image }}">
@@ -88,7 +86,12 @@
     </div>
     </div>
 
-<script>
+
+
+
+
+        <script>
+
     document.getElementById('imgvin').addEventListener ('click', function() {
        document.getElementById('js').innerText = ( "L'abus d'alcool est dangereux pour la santé à consommer avec modération")
     });
@@ -115,6 +118,7 @@
     });
 
 </script>
+
 
 
 

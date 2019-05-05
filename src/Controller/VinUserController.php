@@ -99,18 +99,7 @@ class VinUserController extends AbstractController
     }
 
 
-    /**
-     *@Route("/blanc/{appelation}", name="vinIdBlc")
-     *
-     */
-    public function afficheBlanc($appelation)
-    {
 
-        $repoVin = $this->getDoctrine()->getRepository(Vin::class);
-        $vins = $repoVin->findBy(["appelation" => $appelation]);
-        return $this->render('vin/white.html.twig', ['vins' => $vins]);
-
-    }
 
 
     /**
@@ -189,7 +178,18 @@ class VinUserController extends AbstractController
 
         return $this->render('vin/blanc.html.twig', ['wine' => $form->createView()]);
     }
+    /**
+     *@Route("/blanc/{appelation}", name="vinIdBlc")
+     *
+     */
+    public function afficheBlanc($appelation)
+    {
 
+        $repoVin = $this->getDoctrine()->getRepository(Vin::class);
+        $vins = $repoVin->findBy(["appelation" => $appelation]);
+        return $this->render('vin/white.html.twig', ['vins' => $vins]);
+
+    }
 
 
 
@@ -197,7 +197,7 @@ class VinUserController extends AbstractController
 
 
     /**
-     * @Route("bout/pet" , name="vin_petillant")
+     * @Route("bout/petillant" , name="vin_petillant")
      *
      */
     public function voirPet()
@@ -208,9 +208,9 @@ class VinUserController extends AbstractController
                 'query_builder' => function (EntityRepository $er) {
                     return $er->createQueryBuilder('u')
                         ->andWhere("u.color = 'petillant' ")
-                        ->select('b')
+                        ->select('u')
                         ->distinct(true)
-                        ->groupBy('b.appelation');
+                        ->groupBy('u.appelation');
 
                 },
                 'choice_label' => 'appelation',
@@ -221,7 +221,7 @@ class VinUserController extends AbstractController
     }
 
     /**
-     *@Route("/pet/{appelation}", name="vinIdblc")
+     *@Route("/petillant/{appelation}", name="vinIdPet")
      *
      */
     public function affichePet($appelation)
@@ -229,7 +229,7 @@ class VinUserController extends AbstractController
 
         $repoVin = $this->getDoctrine()->getRepository(Vin::class);
         $vins = $repoVin->findBy(["appelation" => $appelation]);
-        return $this->render('vin/bulles.html.twig', ['vins' => $vins]);
+        return $this->render('vin/vin_petillant.html.twig', ['vins' => $vins]);
 
     }
 
