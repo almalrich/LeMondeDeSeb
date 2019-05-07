@@ -35,34 +35,34 @@
 
         {% endif %}
 
+        <main class="container">
 
+            <nav class="barre">
+
+                <div class="menu">
+
+
+
+                    <a id="rouge" href="{{ path('vin_rouge') }}">Rouge</a>
+
+                    <a id="rose" href="{{ path('vin_rose') }}">Rosé</a>
+
+                    <a id="blanc" href="{{ path('vin_blanc') }}">Blanc</a>
+
+                    <a id="pet" href="{{ path('vin_petillant') }}">Petillant</a>
+
+
+
+                </div>
+
+            </nav>
+
+        </main>
 
 
     </header>{% endblock %}
 
-<main class="container">
 
-<nav class="barre">
-
-<div class="menu">
-
-
-
-    <a id="rouge" href="{{ path('vin_rouge') }}">Rouge</a>
-
-    <a id="rose" href="{{ path('vin_rose') }}">Rosé</a>
-
-    <a id="blanc" href="{{ path('vin_blanc') }}">Blanc</a>
-
-    <a id="pet" href="{{ path('vin_petillant') }}">Petillant</a>
-
-
-
-</div>
-
-    </nav>
-
-    </main>
     {% if is_granted('ROLE_ADMIN') %}
 
     <a class="vin-index" href="{{ path ('vin_index') }}">Vins</a>

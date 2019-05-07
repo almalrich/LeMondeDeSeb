@@ -13,7 +13,7 @@ class UserType extends AbstractType
     {
         $builder
             ->add('username')
-            ->add('password')
+            ->add('plainPassword')
             ->add('rankId')
         ;
     }

@@ -38,32 +38,32 @@
 
 
 
+        <main class="container">
 
+            <nav class="barre">
+
+                <div class="menu">
+
+
+
+                    <a href="{{ path ('vin_rouge')}}" id="rouge">Rouge</a>
+
+                    <a href="{{ path ('vin_rose') }}" id="rose">Rosé</a>
+
+                    <a href="{{ path ('vin_blanc') }}" id="blanc" >Blanc</a>
+
+                    <a href="{{ path('vin_petillant') }}" id="pet" >petillant</a>
+
+
+
+                </div>
+
+            </nav>
+
+        </main>
     {% endblock %}</header>
 
-<main class="container">
 
-    <nav class="barre">
-
-        <div class="menu">
-
-
-
-            <a href="{{ path ('vin_rouge')}}" id="rouge">Rouge</a>
-
-            <a href="{{ path ('vin_rose') }}" id="rose">Rosé</a>
-
-            <a href="{{ path ('vin_blanc') }}" id="blanc" >Blanc</a>
-
-            <a href="{{ path('vin_petillant') }}" id="pet" >petillant</a>
-
-
-
-        </div>
-
-    </nav>
-
-</main>
 
 <body>
 {% block body %}{% endblock %}

@@ -14,63 +14,50 @@
 
 
     <script type="text/javascript">
-
         /*
-        let vin = document.getElementById("form_vin").options[this.selectedIndex].value;
+               let vin = document.getElementById("form_vin").options[this.selectedIndex].value;
 
-        document.getElementById('form_vin').addEventListener("click", function () {
-
-
-            console.log (vin);
+               document.getElementById('form_vin').addEventListener("click", function () {
 
 
-        })*/
+                   console.log (vin);
+
+
+               })*/
 
         document.getElementById('form_vin').selectedIndex = -1;
-
 
         document.getElementById('form_vin').addEventListener("change", function(e)
         {
 
-            window.location.href = '/rouge/' + (e.target.options[e.target.selectedIndex].innerText);
-        });
+            window.location.href = '/rose/' + (e.target.options[e.target.selectedIndex].innerText);
+        })
 
 
-       function selectVin () {
-           var xhr = new XMLHttpRequest();
+        function selectVin () {
+            var xhr = new XMLHttpRequest();
 
-           xhr.open('GET', 'rouge')
+            xhr.open('GET', 'rouge')
 
-           xhr.addEventListener('readystatechange', function() { // On gère ici une requête asynchrone
+            xhr.addEventListener('readystatechange', function() { // On gère ici une requête asynchrone
 
-               if (xhr.readyState === XMLHttpRequest.DONE && xhr.status === 200) { // Si le fichier est chargé sans erreur
+                if (xhr.readyState === 4 && xhr.status === 200) { // Si le fichier est chargé sans erreur
 
-                   //var dd = this.responseText;
+                    //    var dd = this.responseText;
 
 
-                  // document.getElementById('red').innerHTML = '<span>' + xhr.responseText + '</span>'; // Et on affiche !
+                    //  document.getElementById('pink').innerHTML = '<span>' + xhr.responseText + '</span>'; // Et on affiche !
 
-               }
+                }
 
-           });
+            });
 
-           xhr.send(null); // La requête est prête, on envoie tout !
-       }
+            xhr.send(); // La requête est prête, on envoie tout !
+        }
 
-      document.addEventListener("click", selectVin);
+        document.addEventListener("click", selectVin);
 
     </script>
-
-
-
-
-
-
-
-
-
-
-
 
 
 

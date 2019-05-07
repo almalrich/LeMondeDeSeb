@@ -207,6 +207,16 @@ class Vin
         return $this;
     }
 
+    /*
+    public function addMets(Array $mets): self
+    {
+        foreach($mets as $met)
+        {
+            $this->addMet($met);
+        }
+        return $this;
+    }*/
+
     public function removeMet(Mets $met): self
     {
         if ($this->mets->contains($met)) {
@@ -216,5 +226,23 @@ class Vin
 
         return $this;
     }
+
+    /*
+    public function removeMets()
+    {
+
+        $mets = $this->getMets();
+        $val = $mets->count();
+        for($i=0; $i<$val; $i++) {
+            $met = $mets->get($i);
+            $this->mets->removeElement($met);
+            $met->removeVin($this);
+        }
+       // $mets = $this->getMets();
+       // $mets->clear();
+
+        return $this;
+    }
+*/
 
 }

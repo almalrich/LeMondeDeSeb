@@ -232,7 +232,25 @@ class VinUserController extends AbstractController
         return $this->render('vin/vin_petillant.html.twig', ['vins' => $vins]);
 
     }
+/*
+    /**
+     * @Route("/afficheAjaxRouge/{appelation}", name="ajaxVin")
+     */
+/*
+    public function ajaxRouge($appelation){
+        $vins = $this->getDoctrine()->getRepository(Vin::class);
+        $ajaxrouges = $vins->findBy(["appelation"=> $appelation]);
 
 
+        foreach ($ajaxrouges as $ajaxrouge){
+            $rougename[] = $ajaxrouge->getname();
+            $rougedesc[]= $ajaxrouge->getdescription();
+            $rougeimg[] = $ajaxrouge->getimage();
+            $rougeappel[] = $ajaxrouge->getappelation();
+            $rougeprix[] = $ajaxrouge->getprix();
+
+        }
+        return $this->json(['name'=>$rougename, 'description'=>$rougedesc, 'image'=>$rougeimg, 'appelation'=>$rougeappel, 'prix'=>$rougeprix],200);
+    }*/
 }
 

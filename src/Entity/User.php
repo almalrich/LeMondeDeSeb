@@ -4,6 +4,7 @@ namespace App\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Component\Security\Core\User\UserInterface;
+use Symfony\Component\validator\constraints as Assert;
 
 /**
  * User
@@ -33,6 +34,8 @@ class User implements UserInterface
      * @ORM\Column(type="integer")
      */
     private $rankId;
+
+
 
     public function getId(): ?int
     {
@@ -119,4 +122,6 @@ class User implements UserInterface
     {
         // TODO: Implement eraseCredentials() method.
     }
+
+
 }

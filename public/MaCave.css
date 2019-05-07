@@ -19,15 +19,14 @@
 .strat {
 
     color: #565656;
-    padding: 2%;
-    margin: 7%;
+
 
 }
 
 header {
     background-image: url("https://images-na.ssl-images-amazon.com/images/I/51bznI8gdwL._SY355_.jpg");
-    height: 150px;
-    padding: 5%;
+    height: 300px;
+    padding: 0px;
     text-align: center;
 }
 
@@ -45,7 +44,7 @@ h2 {
     border: black solid 2px;
     border-radius: 180px;
     text-align: center;
-    margin-top: 8%;
+    top: 8%;
 
 }
 .menu {
@@ -55,8 +54,9 @@ h2 {
     width: 10%;
     line-height: 2rem;
     font-size: 2em;
-    margin-right: 6%;
+    margin-top: 50px;
     margin-left: 0;
+    position: fixed;
 
 }
 #bienvenu {
@@ -376,9 +376,10 @@ h2 {
 }
 #page{
     align-content: center;
+    min-height: 700px;
 }
 .met-title{
-    rotation: 180deg;
+
     width: 300px;
     position: relative;
     margin-left: 22px;
@@ -402,7 +403,7 @@ h2 {
     transition: transform 0.5s;
 }
 h3{
-    left: 110px;
+    left: 0;
     right: 0;
     top: 20px;
     position: relative;
@@ -410,13 +411,22 @@ h3{
 }
 
 #js{
-    position: relative;
+    position: fixed;
     left: 0;
     right: 0;
     margin: auto;
-    top: 50px;
+    bottom: 50px;
     height: 100px;
     width: 500px;
+    background: rgba(155,0,0,0.1);
+    border-radius: 5em;
+    border: 1px solid rgba(94,0,0,0.5);
+    padding: 1em;
+    color: darkred;
+    font-weight: bold;
+    font-family: sans serif;
+    font-size: 20px;
+    letter-spacing: 1.5px;
 }
 
 #lh{
@@ -460,6 +470,9 @@ h3{
 }
 
 .botlle{
+    display: flex;
+    justify-content: space-evenly;
+    width: 100%;
 
 }
 
@@ -501,6 +514,7 @@ h3{
        right: 0;
        left: 0;
        margin: auto;
+
    }
    #img2{
        right: 0;
@@ -511,19 +525,26 @@ h3{
    #img3{
        right: 0;
        left: 0;
-       top: 980px;
+       top: 950px;
        margin: auto;
    }
    #img4{
        right: 0;
        left: 0;
-       top: 1150px;
+       top: 1110px;
        margin: auto;
    }
    #img5{
        right: 0;
        left: 0;
-       top: 1300px;
+       top: 1280px;
+       margin: auto;
+   }
+
+   #imgvin{
+       left: 0px;
+       right: 0px;
+       top: 50px;
        margin: auto;
    }
    #contenant{
@@ -531,6 +552,7 @@ h3{
        left: 0;
        top: 450px;
        margin: auto;
+       background: #C82829;
    }
 
    #js{
