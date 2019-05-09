@@ -88,8 +88,6 @@ class Vin
      *   }
      * )
      */
-
-
     private $mets;
 
     /**

@@ -11,6 +11,7 @@
 
     display: flex;
     justify-content: flex-end;
+    text-align: center;
 
 
 }
@@ -309,7 +310,7 @@ h2 {
     width: 150px;
     left:  0px;
     right: 0px;
-    top: 405px;
+    top: 425px;
     font-size: 2em;
 }
 
@@ -376,7 +377,7 @@ h2 {
 }
 #page{
     align-content: center;
-    min-height: 700px;
+    min-height: 600px;
 }
 .met-title{
 
@@ -427,6 +428,7 @@ h3{
     font-family: sans serif;
     font-size: 20px;
     letter-spacing: 1.5px;
+    text-align: center;
 }
 
 #lh{
