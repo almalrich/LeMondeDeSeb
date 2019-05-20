@@ -16,6 +16,8 @@ use Symfony\Component\Routing\Annotation\Route;
  */
 class MetsController extends AbstractController
 {
+
+    /*Index of "Mets"*/
     /**
      * @Route("/", name="mets_index", methods={"GET"})
      */
@@ -25,7 +27,7 @@ class MetsController extends AbstractController
             'mets' => $metsRepository->findAll(),
         ]);
     }
-
+    /* new "Mets"*/
     /**
      * @Route("/new", name="mets_new", methods={"GET","POST"})
      */
@@ -48,7 +50,7 @@ class MetsController extends AbstractController
             'form' => $form->createView(),
         ]);
     }
-
+/* "Mets" show*/
     /**
      * @Route("/{id}", name="mets_show", methods={"GET"})
      */
@@ -58,7 +60,7 @@ class MetsController extends AbstractController
             'met' => $met,
         ]);
     }
-
+/* edit "Mets" */
     /**
      * @Route("/{id}/edit", name="mets_edit", methods={"GET","POST"})
      */
@@ -70,10 +72,6 @@ class MetsController extends AbstractController
         if ($form->isSubmitted() && $form->isValid()) {
             $this->getDoctrine()->getManager()->flush();
 
-            /*
-            return $this->redirectToRoute('mets_index', [
-                'id' => $met->getId(),
-            ]);*/
         }
 
         return $this->render('mets/edit.html.twig', [
@@ -81,7 +79,7 @@ class MetsController extends AbstractController
             'form' => $form->createView(),
         ]);
     }
-
+/* Mets Delet*/
     /**
      * @Route("/{id}/delete", name="mets_delete", methods={"DELETE"})
      */

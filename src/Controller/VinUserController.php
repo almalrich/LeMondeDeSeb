@@ -26,20 +26,7 @@ use Doctrine\ORM\EntityRepository;
 
 class VinUserController extends AbstractController
 {
-/*
-    /**
-     * @Route("/bouteille/{id}", name="bouteille", methods={"GET"})
-     */
- /*   public function affiche(Request $request, Vin $vin, $id)
-    {
-
-        $repoVin = $this->getDoctrine()->getRepository(Vin::class);
-        $vin = $repoVin->find($id);
-
-
-        return $this->render('vin/uservin.html.twig', ["vins" => $vin]);
-    }
-*/
+/*show botlle by Id*/
     /**
      *
      * @Route("/vin/bout/{id}" , name="bout")
@@ -60,6 +47,7 @@ class VinUserController extends AbstractController
     }
 
 
+    /*select all wine in Vin table*/
     /**
      * @Route("/uservin", name="baseUser", methods={"GET"})
      */
@@ -69,7 +57,7 @@ class VinUserController extends AbstractController
             'vins' => $vinRepository->findAll(),
         ]);
     }
-
+    /*DQL Request for red wine by "appellation"*/
     /**
      * @Route("bout/rouge" , name="vin_rouge")
      *
@@ -100,7 +88,7 @@ class VinUserController extends AbstractController
 
 
 
-
+    /*show DQL's botlle by "Appellation"*/
 
     /**
      *@Route("/rouge/{appelation}", name="vinId")
@@ -111,8 +99,8 @@ class VinUserController extends AbstractController
 
 
         $repoVin = $this->getDoctrine()->getRepository(Vin::class);
-        $vins = $repoVin->findBy(["appelation"=>$appelation]);
-        dump($vins);
+        $vins = $repoVin->findBy(["appelation"=>$appelation, 'color'=>'rouge']);
+
         return $this->render('vin/wine.html.twig', ['vins'=>$vins]);
 
 
@@ -120,7 +108,7 @@ class VinUserController extends AbstractController
 
     }
 
-
+    /* The same for pink*/
 
     /**
      * @Route("bout/rose" , name="vin_rose")
@@ -133,6 +121,7 @@ class VinUserController extends AbstractController
             ->add('vin', EntityType::class, ['class' => Vin::class,
                 'query_builder' => function (EntityRepository $er) {
                     return $er->createQueryBuilder('u')
+                        ->select('u')
                         ->distinct(true)
                         ->groupBy('u.appelation')
                         ->andWhere("u.color = 'rose' ");
@@ -151,11 +140,12 @@ class VinUserController extends AbstractController
     {
 
         $repoVin = $this->getDoctrine()->getRepository(Vin::class);
-        $vins = $repoVin->findBy(["appelation" => $appelation]);
+        $vins = $repoVin->findBy(["appelation" => $appelation, 'color'=>'rose']);
         return $this->render('vin/pink.html.twig', ['vins' => $vins]);
 
     }
 
+    /*the same for withe wine*/
     /**
      * @Route("bout/blanc" , name="vin_blanc")
      *
@@ -186,7 +176,7 @@ class VinUserController extends AbstractController
     {
 
         $repoVin = $this->getDoctrine()->getRepository(Vin::class);
-        $vins = $repoVin->findBy(["appelation" => $appelation]);
+        $vins = $repoVin->findBy(["appelation" => $appelation, 'color'=>'blanc']);
         return $this->render('vin/white.html.twig', ['vins' => $vins]);
 
     }
@@ -195,7 +185,7 @@ class VinUserController extends AbstractController
 
 
 
-
+    /* And last for pet wine*/
     /**
      * @Route("bout/petillant" , name="vin_petillant")
      *
@@ -228,29 +218,10 @@ class VinUserController extends AbstractController
     {
 
         $repoVin = $this->getDoctrine()->getRepository(Vin::class);
-        $vins = $repoVin->findBy(["appelation" => $appelation]);
+        $vins = $repoVin->findBy(["appelation" => $appelation, 'color'=>'petillant']);
         return $this->render('vin/vin_petillant.html.twig', ['vins' => $vins]);
 
     }
-/*
-    /**
-     * @Route("/afficheAjaxRouge/{appelation}", name="ajaxVin")
-     */
-/*
-    public function ajaxRouge($appelation){
-        $vins = $this->getDoctrine()->getRepository(Vin::class);
-        $ajaxrouges = $vins->findBy(["appelation"=> $appelation]);
 
-
-        foreach ($ajaxrouges as $ajaxrouge){
-            $rougename[] = $ajaxrouge->getname();
-            $rougedesc[]= $ajaxrouge->getdescription();
-            $rougeimg[] = $ajaxrouge->getimage();
-            $rougeappel[] = $ajaxrouge->getappelation();
-            $rougeprix[] = $ajaxrouge->getprix();
-
-        }
-        return $this->json(['name'=>$rougename, 'description'=>$rougedesc, 'image'=>$rougeimg, 'appelation'=>$rougeappel, 'prix'=>$rougeprix],200);
-    }*/
 }
 

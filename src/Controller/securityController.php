@@ -16,6 +16,7 @@ use Symfony\Component\Security\Http\Authentication\AuthenticationUtils;
 
 class securityController extends AbstractController
 {
+    /*authentication by username */
     /**
      * @param Request $request
      * @param AuthenticationUtils $authenticationUtils

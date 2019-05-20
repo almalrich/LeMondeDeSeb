@@ -16,6 +16,7 @@ use Symfony\Component\Security\Core\Encoder\UserPasswordEncoderInterface;
  */
 class UserController extends AbstractController
 {
+    /*User index*/
     /**
      * @Route("/", name="user_index", methods={"GET"})
      */
@@ -25,11 +26,11 @@ class UserController extends AbstractController
             'users' => $userRepository->findAll(),
         ]);
     }
-
+    /* create new User*/
     /**
      * @Route("/new", name="user_new", methods={"GET","POST"})
      */
-    public function new(Request $request): Response
+    public function new(Request $request, UserPasswordEncoderInterface $passwordEncoder): Response
     {
         $user = new User();
         $form = $this->createForm(UserType::class, $user);
@@ -37,7 +38,8 @@ class UserController extends AbstractController
 
         if ($form->isSubmitted() && $form->isValid()) {
 
-
+            $password = $passwordEncoder->encodePassword($user, $user->getPassword());
+            $user->setPassword($password);
 
             $entityManager = $this->getDoctrine()->getManager();
             $entityManager->persist($user);
@@ -51,7 +53,7 @@ class UserController extends AbstractController
             'form' => $form->createView(),
         ]);
     }
-
+    /*User show*/
     /**
      * @Route("/{id}", name="user_show", methods={"GET"})
      */
@@ -61,7 +63,7 @@ class UserController extends AbstractController
             'user' => $user,
         ]);
     }
-
+    /* User Edit*/
     /**
      * @Route("/{id}/edit", name="user_edit", methods={"GET","POST"})
      */
@@ -83,7 +85,7 @@ class UserController extends AbstractController
             'form' => $form->createView(),
         ]);
     }
-
+    /*User Delete*/
     /**
      * @Route("/{id}", name="user_delete", methods={"DELETE"})
      */
@@ -97,18 +99,5 @@ class UserController extends AbstractController
 
         return $this->redirectToRoute('user_index');
     }
-/*
-    /**
-     * @Route("/new", name="user_new", methods={"GET","POST"})
-     * @param UserPasswordEncoderInterface $encoder
-     */
- /*   public function register(UserPasswordEncoderInterface $encoder)
-    {
-        // whatever *your* User object is
-        $user = new User();
-        $plainPassword = $user->getPassword();
-        $encoded = $encoder->encodePassword($user, $plainPassword);
 
-        $user->setPassword($encoded);
-    }*/
 }

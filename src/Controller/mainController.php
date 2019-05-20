@@ -14,9 +14,10 @@ use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\Form\Extension\Core\Type\SubmitType;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\Routing\Annotation\Route;
+use Symfony\Component\Security\Core\Encoder\UserPasswordEncoderInterface;
 
 class mainController extends AbstractController
-{
+{/* redirect by Role homepage*/
     /**
      * @Route("/", name="homepage")
      * @return \Symfony\Component\HttpFoundation\RedirectResponse
@@ -35,12 +36,12 @@ class mainController extends AbstractController
         }
 
     }
-
+/*inscription*/
     /**
      * @Route("/inscription", name="inscription")
      *
      */
-    public function inscription(Request $request){
+    public function inscription(Request $request, UserPasswordEncoderInterface $passwordEncoder){
 
         $user = new User();
 
@@ -51,6 +52,8 @@ class mainController extends AbstractController
         if ($form->isSubmitted()&&$form->isValid()){
 
             $user->setRankId(2);
+            $password = $passwordEncoder->encodePassword($user, $user->getPassword());
+            $user->setPassword($password);
 
 
             $em = $this->getDoctrine()->getManager();

@@ -4,7 +4,7 @@ namespace App\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Component\Security\Core\User\UserInterface;
-use Symfony\Component\validator\constraints as Assert;
+
 
 /**
  * User
@@ -34,6 +34,8 @@ class User implements UserInterface
      * @ORM\Column(type="integer")
      */
     private $rankId;
+
+
 
 
 
@@ -123,5 +125,19 @@ class User implements UserInterface
         // TODO: Implement eraseCredentials() method.
     }
 
+    /*
+
+    public function getPlainPassword(): ?string
+    {
+        return $this->plainPassword;
+    }
+
+    public function setPlainPassword(?string $password): self
+    {
+        $this->plainPassword = $password;
+
+        return $this;
+    }
+*/
 
 }

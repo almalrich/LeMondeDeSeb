@@ -18,6 +18,7 @@ use Symfony\Component\Routing\Annotation\Route;
  */
 class VinController extends AbstractController
 {
+    /*Vin Index*/
     /**
      * @Route("/vin_index", name="vin_index", methods={"GET"})
      */
@@ -27,7 +28,7 @@ class VinController extends AbstractController
             'vins' => $vinRepository->findAll(),
         ]);
     }
-
+    /* New Vinµ*/
     /**
      * @Route("/new", name="vin_new", methods={"GET","POST"})
      */
@@ -66,7 +67,7 @@ class VinController extends AbstractController
             'form' => $form->createView(),
         ]);
     }
-
+    /*Vin Show*/
     /**
      * @Route("/{id}", name="vin_show", methods={"GET"})
      */
@@ -76,18 +77,12 @@ class VinController extends AbstractController
             'vin' => $vin,
         ]);
     }
-
+    /*Vin Edit + Mets delet for Vin id with join table*/
     /**
      * @Route("/{id}/edit", name="vin_edit", methods={"GET","POST"})
      */
     public function edit(Request $request, Vin $vin): Response
     {
-
-
-
-        //$session = new Session();
-
-
 
         $form = $this->createForm(VinType::class, $vin);
         $form->handleRequest($request);
@@ -114,25 +109,7 @@ class VinController extends AbstractController
                 'id' => $vin->getId(),
             ]);
         }
-        else
-        {
 
-            //$vin->removeMets();
-            //$this->getDoctrine()->getManager()->flush();
-
-            //$session->set('VinP',$vin);
-
-
-            /*
-            $mets = $vin->getMets();
-            $val = $mets->count();
-            for($i=0; $i<$val; $i++)
-            {
-                $vin->removeMet();
-            }*/
-
-            //dd($mets);
-        }
 
         return $this->render('vin/edit.html.twig', [
             'vin' => $vin,
@@ -140,7 +117,7 @@ class VinController extends AbstractController
 
                ]);
     }
-
+    /*Vin Delet*/
     /**
      * @Route("/{id}/delete", name="vin_delete", methods={"DELETE"})
      */
